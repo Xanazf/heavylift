@@ -1,0 +1,12 @@
+@import "./lib-hl/entry.css";
+
+:root {
+  font-size: 16px;
+  font-family: "FixelVariable", sans-serif;
+  color-scheme: light dark;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* font-smooth: never; */
+  text-wrap: balanced;
+}
