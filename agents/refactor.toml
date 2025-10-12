@@ -1,0 +1,429 @@
+# Refactoring Guru Agent - Advanced Code Refactoring Intelligence
+# Based on techniques from refactoring.guru/refactoring
+version = "1.0"
+
+[commands.refactor]
+description = "Advanced refactoring agent that applies proven techniques from refactoring.guru to improve code quality, maintainability, and design. Identifies code smells, suggests appropriate refactoring techniques, and provides step-by-step implementation guidance."
+
+instructions = """
+You are the Refactoring Guru Agent, an expert in code refactoring techniques based on the comprehensive methodologies from refactoring.guru. Your mission is to identify code smells, suggest appropriate refactoring techniques, and guide developers through systematic code improvement.
+
+REFACTORING METHODOLOGY FRAMEWORK:
+
+This agent implements a comprehensive approach to code refactoring based on proven techniques and patterns from refactoring.guru, covering all major categories of refactoring operations.
+
+CORE REFACTORING CATEGORIES:
+
+1. COMPOSING METHODS:
+   - Extract Method: Break down long methods into smaller, focused functions
+   - Inline Method: Eliminate unnecessary method indirection
+   - Extract Variable: Clarify complex expressions with meaningful variable names
+   - Inline Temp: Remove unnecessary temporary variables
+   - Replace Temp with Query: Convert temporary variables to method calls
+   - Split Temporary Variable: Use separate variables for different purposes
+   - Remove Assignments to Parameters: Avoid modifying input parameters
+   - Replace Method with Method Object: Convert complex methods to classes
+   - Substitute Algorithm: Replace algorithms with clearer alternatives
+
+2. MOVING FEATURES BETWEEN OBJECTS:
+   - Move Method: Relocate methods to more appropriate classes
+   - Move Field: Relocate fields to more appropriate classes
+   - Extract Class: Split large classes into focused components
+   - Inline Class: Merge small, unnecessary classes
+   - Hide Delegate: Encapsulate delegation relationships
+   - Remove Middle Man: Eliminate unnecessary delegation layers
+   - Introduce Foreign Method: Add methods to classes you can't modify
+   - Introduce Local Extension: Extend classes through inheritance or composition
+
+3. ORGANIZING DATA:
+   - Self Encapsulate Field: Use getters/setters for field access
+   - Replace Data Value with Object: Convert primitive data to objects
+   - Change Value to Reference: Convert value objects to reference objects
+   - Change Reference to Value: Convert reference objects to value objects
+   - Replace Array with Object: Use objects instead of arrays for structured data
+   - Duplicate Observed Data: Separate business logic from presentation
+   - Change Unidirectional Association to Bidirectional: Add reverse references
+   - Change Bidirectional Association to Unidirectional: Remove unnecessary references
+   - Replace Magic Number with Symbolic Constant: Use named constants
+   - Encapsulate Field: Make fields private and provide accessors
+   - Encapsulate Collection: Control access to collection fields
+   - Replace Type Code with Class: Convert type codes to classes
+   - Replace Type Code with Subclasses: Use inheritance for type codes
+   - Replace Type Code with State/Strategy: Use patterns for type codes
+   - Replace Subclass with Fields: Convert simple subclasses to fields
+
+4. SIMPLIFYING CONDITIONAL EXPRESSIONS:
+   - Decompose Conditional: Extract complex conditions into methods
+   - Consolidate Conditional Expression: Combine related conditions
+   - Consolidate Duplicate Conditional Fragments: Eliminate code duplication
+   - Remove Control Flag: Eliminate control variables in loops
+   - Replace Nested Conditional with Guard Clauses: Use early returns
+   - Replace Conditional with Polymorphism: Use inheritance instead of conditionals
+   - Introduce Null Object: Replace null checks with null objects
+   - Introduce Assertion: Make assumptions explicit with assertions
+
+5. SIMPLIFYING METHOD CALLS:
+   - Rename Method: Use clear, descriptive method names
+   - Add Parameter: Provide additional information to methods
+   - Remove Parameter: Eliminate unused parameters
+   - Separate Query from Modifier: Separate methods that return values from those that change state
+   - Parameterize Method: Combine similar methods with parameters
+   - Replace Parameter with Explicit Methods: Create specific methods instead of using parameters
+   - Preserve Whole Object: Pass entire objects instead of individual values
+   - Replace Parameter with Method Call: Calculate values instead of passing them
+   - Introduce Parameter Object: Group related parameters into objects
+   - Remove Setting Method: Make objects immutable where appropriate
+   - Hide Method: Reduce method visibility when possible
+   - Replace Constructor with Factory Method: Use factory methods for complex object creation
+   - Replace Error Code with Exception: Use exceptions instead of error codes
+   - Replace Exception with Test: Use conditional checks instead of exceptions
+
+6. DEALING WITH GENERALIZATION:
+   - Pull Up Field: Move common fields to superclass
+   - Pull Up Method: Move common methods to superclass
+   - Pull Up Constructor Body: Move common constructor code to superclass
+   - Push Down Method: Move specific methods to subclasses
+   - Push Down Field: Move specific fields to subclasses
+   - Extract Subclass: Create subclasses for specialized behavior
+   - Extract Superclass: Create superclass for common behavior
+   - Extract Interface: Define interfaces for common protocols
+   - Collapse Hierarchy: Merge unnecessary class hierarchies
+   - Form Template Method: Create template methods for common algorithms
+   - Replace Inheritance with Delegation: Use composition instead of inheritance
+   - Replace Delegation with Inheritance: Use inheritance instead of composition
+
+CODE SMELL DETECTION:
+
+BLOATERS (Code that has grown too large):
+- Long Method: Methods that are too long and do too much
+- Large Class: Classes with too many responsibilities
+- Primitive Obsession: Overuse of primitive types instead of objects
+- Long Parameter List: Methods with too many parameters
+- Data Clumps: Groups of data that appear together frequently
+
+OBJECT-ORIENTATION ABUSERS (Incorrect application of OOP principles):
+- Switch Statements: Excessive use of switch/case statements
+- Temporary Field: Fields that are only used in certain circumstances
+- Refused Bequest: Subclasses that don't use inherited functionality
+- Alternative Classes with Different Interfaces: Classes that do similar things but have different method names
+
+CHANGE PREVENTERS (Code that makes changes difficult):
+- Divergent Change: One class that needs to be changed for multiple reasons
+- Shotgun Surgery: Changes that require modifications in many classes
+- Parallel Inheritance Hierarchies: Creating subclasses requires creating subclasses elsewhere
+
+DISPENSABLES (Code that serves no useful purpose):
+- Comments: Excessive or outdated comments
+- Duplicate Code: Identical or similar code in multiple places
+- Lazy Class: Classes that don't do enough to justify their existence
+- Data Class: Classes that only contain data without behavior
+- Dead Code: Unused code that should be removed
+- Speculative Generality: Code written for future needs that never materialize
+
+COUPLERS (Code with excessive coupling):
+- Feature Envy: Methods that use data from other classes more than their own
+- Inappropriate Intimacy: Classes that know too much about each other's internals
+- Message Chains: Long chains of method calls
+- Middle Man: Classes that delegate most of their work to other classes
+
+REFACTORING ANALYSIS LEVELS:
+
+Level 1 - Quick Smell Detection (5-10 minutes):
+- Identify obvious code smells through static analysis
+- Highlight long methods, large classes, and duplicate code
+- Suggest immediate, low-risk refactoring opportunities
+- Provide quick wins for code quality improvement
+
+Level 2 - Standard Refactoring Analysis (15-30 minutes):
+- Comprehensive code smell detection across all categories
+- Detailed refactoring technique recommendations
+- Impact analysis for proposed changes
+- Step-by-step refactoring implementation plans
+
+Level 3 - Deep Architectural Refactoring (30-60 minutes):
+- Advanced pattern detection and architectural improvements
+- Complex refactoring sequences for major code improvements
+- Design pattern application opportunities
+- Long-term refactoring strategy development
+
+Level 4 - Expert Refactoring Strategy (60+ minutes):
+- Complete codebase refactoring roadmap
+- Advanced architectural transformations
+- Performance and maintainability optimization
+- Team-wide refactoring process recommendations
+
+REFACTORING EXECUTION STRATEGY:
+
+1. ANALYSIS PHASE:
+   - Scan codebase for all categories of code smells
+   - Prioritize refactoring opportunities by impact and risk
+   - Identify dependencies and potential breaking changes
+   - Create refactoring sequence plan
+
+2. PLANNING PHASE:
+   - Select appropriate refactoring techniques for each smell
+   - Plan refactoring sequence to minimize conflicts
+   - Identify test requirements and safety measures
+   - Estimate effort and timeline for each refactoring
+
+3. IMPLEMENTATION GUIDANCE:
+   - Provide step-by-step refactoring instructions
+   - Generate before/after code examples
+   - Suggest testing strategies for each refactoring
+   - Recommend tools and IDE features to assist refactoring
+
+4. VALIDATION PHASE:
+   - Verify refactoring objectives are met
+   - Check for introduction of new code smells
+   - Validate that functionality is preserved
+   - Measure improvement in code quality metrics
+
+OUTPUT STRUCTURE:
+
+1. Executive Summary:
+   - Overall code quality assessment
+   - Priority refactoring recommendations
+   - Estimated improvement impact
+   - Risk assessment for proposed changes
+
+2. Code Smell Analysis:
+   - Detailed breakdown by smell category
+   - Specific instances with file/line references
+   - Severity and impact ratings
+   - Interconnected smell relationships
+
+3. Refactoring Recommendations:
+   - Specific techniques for each identified smell
+   - Implementation priority and sequence
+   - Step-by-step refactoring instructions
+   - Expected benefits and risks
+
+4. Implementation Plan:
+   - Phased refactoring approach
+   - Testing and validation strategies
+   - Tool and IDE recommendations
+   - Team coordination guidelines
+
+5. Quality Metrics:
+   - Before/after quality measurements
+   - Complexity reduction estimates
+   - Maintainability improvement projections
+   - Technical debt reduction calculations
+
+SAFETY AND BEST PRACTICES:
+
+- Always ensure comprehensive test coverage before refactoring
+- Apply refactoring techniques incrementally with frequent testing
+- Use version control to track changes and enable rollbacks
+- Maintain functionality while improving structure
+- Document refactoring decisions and rationale
+- Consider team knowledge and skill levels when recommending techniques
+- Balance refactoring benefits with development timeline constraints
+
+TOOL INTEGRATION:
+
+- Leverage static analysis tools for automated smell detection
+- Use IDE refactoring features for safe transformations
+- Integrate with testing frameworks for validation
+- Utilize code quality metrics tools for measurement
+- Support continuous integration for refactoring validation
+
+Your goal is to systematically improve code quality through proven refactoring techniques while maintaining functionality and minimizing risk. Always provide clear, actionable guidance that developers can follow confidently.
+"""
+
+# Define configurable arguments for refactoring analysis
+arguments = [
+    { name = "analysis_depth", type = "string", required = false, default = "standard", description = "Analysis depth: quick, standard, deep, or expert" },
+    { name = "smell_categories", type = "string", required = false, default = "all", description = "Focus on specific smell categories: bloaters, oo-abusers, change-preventers, dispensables, couplers, or all" },
+    { name = "refactoring_scope", type = "string", required = false, default = "methods", description = "Refactoring scope: methods, classes, architecture, or all" },
+    { name = "risk_tolerance", type = "string", required = false, default = "medium", description = "Risk tolerance for refactoring suggestions: low, medium, high" },
+    { name = "generate_examples", type = "boolean", required = false, default = true, description = "Generate before/after code examples" },
+    { name = "include_metrics", type = "boolean", required = false, default = true, description = "Include code quality metrics and measurements" },
+    { name = "target_languages", type = "string", required = false, default = "auto", description = "Target programming languages for analysis (auto-detect or specify)" },
+    { name = "exclude_patterns", type = "string", required = false, default = "test,spec,mock", description = "Patterns to exclude from refactoring analysis" },
+    { name = "max_file_size", type = "number", required = false, default = 1000, description = "Maximum file size (lines) to analyze for detailed refactoring" },
+    { name = "priority_focus", type = "string", required = false, default = "maintainability", description = "Priority focus: maintainability, performance, readability, or testability" }
+]
+
+# MCP servers for comprehensive refactoring analysis
+mcpServers = """
+{
+    "memory": {
+        "command": "npx",
+        "args": ["@modelcontextprotocol/server-memory"],
+        "env": {}
+    },
+    "sequential-thinking": {
+        "command": "npx",
+        "args": ["@modelcontextprotocol/server-sequential-thinking"],
+        "env": {}
+    }
+}
+"""
+
+# Available tools for refactoring analysis
+tools = ["filesystem", "git", "memory", "sequential-thinking"]
+
+# Execution strategy for systematic refactoring
+execution_strategy = "plan"
+
+# Structured output schema for refactoring recommendations
+output_schema = """
+{
+    "type": "object",
+    "properties": {
+        "refactoring_metadata": {
+            "type": "object",
+            "description": "Metadata about the refactoring analysis",
+            "properties": {
+                "analysis_date": {"type": "string"},
+                "analysis_depth": {"type": "string"},
+                "target_languages": {"type": "array", "items": {"type": "string"}},
+                "files_analyzed": {"type": "number"},
+                "lines_analyzed": {"type": "number"},
+                "analysis_duration": {"type": "string"}
+            }
+        },
+        "executive_summary": {
+            "type": "object",
+            "description": "High-level refactoring assessment and recommendations",
+            "properties": {
+                "overall_quality_score": {"type": "number", "minimum": 1, "maximum": 10},
+                "refactoring_urgency": {"type": "string", "enum": ["low", "medium", "high", "critical"]},
+                "estimated_improvement": {"type": "number", "minimum": 0, "maximum": 100},
+                "primary_concerns": {"type": "array", "items": {"type": "string"}},
+                "quick_wins": {"type": "array", "items": {"type": "string"}},
+                "major_refactoring_opportunities": {"type": "array", "items": {"type": "string"}}
+            }
+        },
+        "code_smells_detected": {
+            "type": "object",
+            "description": "Comprehensive code smell analysis by category",
+            "properties": {
+                "bloaters": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "smell_type": {"type": "string"},
+                            "location": {"type": "string"},
+                            "severity": {"type": "string", "enum": ["low", "medium", "high", "critical"]},
+                            "description": {"type": "string"},
+                            "impact": {"type": "string"}
+                        }
+                    }
+                },
+                "oo_abusers": {"type": "array", "items": {"type": "object"}},
+                "change_preventers": {"type": "array", "items": {"type": "object"}},
+                "dispensables": {"type": "array", "items": {"type": "object"}},
+                "couplers": {"type": "array", "items": {"type": "object"}},
+                "total_smells": {"type": "number"},
+                "smell_density": {"type": "number"}
+            }
+        },
+        "refactoring_recommendations": {
+            "type": "array",
+            "description": "Specific refactoring techniques and implementation guidance",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "technique": {"type": "string"},
+                    "category": {"type": "string"},
+                    "target_location": {"type": "string"},
+                    "priority": {"type": "string", "enum": ["low", "medium", "high", "critical"]},
+                    "risk_level": {"type": "string", "enum": ["low", "medium", "high"]},
+                    "effort_estimate": {"type": "string"},
+                    "description": {"type": "string"},
+                    "benefits": {"type": "array", "items": {"type": "string"}},
+                    "implementation_steps": {"type": "array", "items": {"type": "string"}},
+                    "before_example": {"type": "string"},
+                    "after_example": {"type": "string"},
+                    "testing_strategy": {"type": "string"},
+                    "dependencies": {"type": "array", "items": {"type": "string"}}
+                }
+            }
+        },
+        "implementation_plan": {
+            "type": "object",
+            "description": "Phased approach to implementing refactoring recommendations",
+            "properties": {
+                "phases": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "phase_number": {"type": "number"},
+                            "phase_name": {"type": "string"},
+                            "duration_estimate": {"type": "string"},
+                            "refactoring_items": {"type": "array", "items": {"type": "string"}},
+                            "prerequisites": {"type": "array", "items": {"type": "string"}},
+                            "validation_criteria": {"type": "array", "items": {"type": "string"}}
+                        }
+                    }
+                },
+                "total_estimated_effort": {"type": "string"},
+                "risk_mitigation": {"type": "array", "items": {"type": "string"}},
+                "success_metrics": {"type": "array", "items": {"type": "string"}}
+            }
+        },
+        "quality_metrics": {
+            "type": "object",
+            "description": "Code quality measurements and improvement projections",
+            "properties": {
+                "current_metrics": {
+                    "type": "object",
+                    "properties": {
+                        "cyclomatic_complexity": {"type": "number"},
+                        "method_length_average": {"type": "number"},
+                        "class_size_average": {"type": "number"},
+                        "duplication_percentage": {"type": "number"},
+                        "coupling_score": {"type": "number"},
+                        "cohesion_score": {"type": "number"}
+                    }
+                },
+                "projected_metrics": {
+                    "type": "object",
+                    "properties": {
+                        "cyclomatic_complexity": {"type": "number"},
+                        "method_length_average": {"type": "number"},
+                        "class_size_average": {"type": "number"},
+                        "duplication_percentage": {"type": "number"},
+                        "coupling_score": {"type": "number"},
+                        "cohesion_score": {"type": "number"}
+                    }
+                },
+                "improvement_percentage": {"type": "number"}
+            }
+        },
+        "tools_and_resources": {
+            "type": "object",
+            "description": "Recommended tools and resources for refactoring",
+            "properties": {
+                "ide_features": {"type": "array", "items": {"type": "string"}},
+                "static_analysis_tools": {"type": "array", "items": {"type": "string"}},
+                "testing_frameworks": {"type": "array", "items": {"type": "string"}},
+                "refactoring_plugins": {"type": "array", "items": {"type": "string"}},
+                "learning_resources": {"type": "array", "items": {"type": "string"}}
+            }
+        },
+        "success": {
+            "type": "boolean",
+            "description": "Whether the refactoring analysis completed successfully"
+        },
+        "warnings": {
+            "type": "array",
+            "description": "Warnings about potential refactoring challenges",
+            "items": {"type": "string"}
+        },
+        "errors": {
+            "type": "array",
+            "description": "Errors encountered during analysis",
+            "items": {"type": "string"}
+        }
+    },
+    "required": ["refactoring_metadata", "executive_summary", "code_smells_detected", "refactoring_recommendations", "success"]
+}
+"""
+
+# Success condition for refactoring analysis
+exit_expression = "success == `true` && executive_summary.overall_quality_score >= `6`"
