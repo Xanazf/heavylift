@@ -443,7 +443,6 @@
 }
 
 @media screen and (max-width: 767px) {
-
   .display1-bold,
   .display1 {
     font-size: 3.3301em;
@@ -474,7 +473,7 @@
 }
 
 .rich-text {
-  color: var(--light__onsurface_lkv);
+  color: var(--hl-onsurface);
 }
 
 .tiptap h1 {
@@ -562,12 +561,12 @@
 }
 
 .tiptap a {
-  color: var(--light__primary_lkv);
+  color: var(--hl-primary);
   font-weight: 700;
 }
 
 .tiptap figcaption {
-  color: var(--light__onsurfacevariant_lkv);
+  color: var(--hl-onsurfacevariant);
   margin-top: 1em;
   margin-bottom: 1em;
   font-size: var(--caption-font-size);

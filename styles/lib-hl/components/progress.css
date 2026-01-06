@@ -1,0 +1,22 @@
+.progress-linear {
+  width: 100%;
+  height: 4px;
+  background-color: var(--hl-surfacecontainerhighest);
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: var(--hl-primary);
+  width: 50%;
+}
+
+.progress-circular {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--hl-surfacecontainerhighest);
+  border-top-color: var(--hl-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}

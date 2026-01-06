@@ -1,29 +1,77 @@
-.tooltip-menu {
-	--calculation-key: calc(var(--xl-unitless) / var(--halfstep));
-	transform: scale(0);
-	transition: transform 0.2s ease;
-	overflow: hidden;
-	padding: calc(1em * calc(var(--label-line-height) / var(--calculation-key)))
-		var(--label-font-size);
-	max-width: 320px;
+.tooltip {
+  --tooltip-container-color: var(--hl-inversesurface);
+  --tooltip-content-color: var(--hl-inverseonsurface);
+  
+  --tooltip-padding-y: var(--xs);
+  --tooltip-padding-x: var(--sm);
+  --tooltip-radius: var(--2xs);
+  
+  display: inline-block;
+  padding: var(--tooltip-padding-y) var(--tooltip-padding-x);
+  
+  background-color: var(--tooltip-container-color);
+  color: var(--tooltip-content-color);
+  border-radius: var(--tooltip-radius);
+  
+  font-family: var(--font-family-base);
+  font-size: var(--caption-font-size);
+  line-height: var(--caption-line-height);
+  font-weight: 400;
+  white-space: nowrap;
+  
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 200ms ease, transform 200ms ease;
+  pointer-events: none;
+  z-index: 1000;
+  
+  position: absolute;
 }
 
-.tooltip-menu.active {
-	transform: scale(1);
+.tooltip-wrap {
+  position: relative;
+  display: inline-flex;
 }
 
-.tooltip-menu-item {
-	display: flex;
-	align-items: center;
-	gap: var(--sm);
-	overflow: hidden;
-	position: relative;
-	border-radius: var(--xs);
-	padding: var(--sm);
-	width: 100%;
-	cursor: "pointer";
+.tooltip-wrap:hover .tooltip,
+.tooltip-wrap:focus-within .tooltip {
+  opacity: 1;
+  transform: scale(1);
 }
 
-.tooltip-menu-item * {
-	pointer-events: none;
+.tooltip.top {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px) scale(0.9);
+  margin-bottom: var(--xs);
+}
+.tooltip-wrap:hover .tooltip.top {
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.tooltip.bottom {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px) scale(0.9);
+  margin-top: var(--xs);
+}
+.tooltip-wrap:hover .tooltip.bottom {
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.tooltip.rich {
+  --tooltip-container-color: var(--hl-surfacecontainer);
+  --tooltip-content-color: var(--hl-onsurfacevariant);
+  --tooltip-radius: var(--sm);
+  
+  padding: var(--md);
+  box-shadow: var(--shadow-md);
+  white-space: normal;
+  max-width: 320px;
+}
+.tooltip.rich .tooltip-title {
+  color: var(--hl-onsurface);
+  font-weight: 500;
+  margin-bottom: var(--xs);
+  display: block;
 }

@@ -1,0 +1,10 @@
+.bottom-app-bar {
+  height: 80px;
+  background-color: var(--hl-surfacecontainer);
+  display: flex;
+  align-items: center;
+  padding-inline: 16px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

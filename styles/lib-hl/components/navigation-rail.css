@@ -1,0 +1,24 @@
+.nav-rail {
+  --nav-rail-width: 80px;
+  --nav-rail-container-color: var(--hl-surface);
+  
+  width: var(--nav-rail-width);
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: var(--md);
+  gap: var(--md);
+  
+  background-color: var(--nav-rail-container-color);
+  border-right: 1px solid var(--hl-outlinevariant);
+}
+
+.nav-rail .nav-item {
+  height: 56px;
+  width: 100%;
+}

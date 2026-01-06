@@ -1,0 +1,8 @@
+.search-bar {
+  height: 56px;
+  border-radius: 28px;
+  background-color: var(--hl-surfacecontainerhigh);
+  display: flex;
+  align-items: center;
+  padding-inline: 16px;
+}

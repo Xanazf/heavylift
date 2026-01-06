@@ -1,26 +1,46 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.dropdown-trigger {
+  cursor: pointer;
+}
+
 .dropdown-menu {
-	transform: scale(0);
-	transition: transform 0.2s ease;
-	overflow: hidden;
-	padding: var(--xs);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin-top: 4px;
+  
+  background-color: var(--hl-surfacecontainer);
+  border-radius: var(--sm);
+  box-shadow: var(--shadow-md);
+  z-index: 100;
+  
+  display: none;
+  flex-direction: column;
+  padding-block: var(--sm);
 }
 
-.dropdown-menu.active {
-	transform: scale(1);
+.dropdown.open .dropdown-menu {
+  display: flex;
 }
 
-.dropdown-menu-item {
-	display: flex;
-	align-items: center;
-	gap: var(--sm);
-	overflow: hidden;
-	position: relative;
-	border-radius: var(--xs);
-	padding: var(--sm);
-	width: 100%;
-	cursor: "pointer";
+.dropdown-item {
+  padding: var(--md);
+  color: var(--hl-onsurface);
+  cursor: pointer;
+  transition: background-color 200ms ease;
 }
 
-.dropdown-menu-item * {
-	pointer-events: none;
+.dropdown-item:hover {
+  background-color: var(--hl-surfacecontainerhigh);
+}
+
+.dropdown-item.selected {
+  background-color: var(--hl-primarycontainer);
+  color: var(--hl-onprimarycontainer);
 }

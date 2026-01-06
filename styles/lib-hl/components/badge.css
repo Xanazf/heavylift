@@ -1,15 +1,44 @@
 .badge {
+  --badge-color: var(--hl-error);
+  --badge-content-color: var(--hl-onerror);
+  
+  --badge-size: var(--sm);
+  --badge-font-size: 0.75em;
+  
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--xs);
-  border-radius: var(--sm);
+  box-sizing: border-box;
+  
+  background-color: var(--badge-color);
+  color: var(--badge-content-color);
+  border-radius: 100em;
+  
+  min-width: var(--badge-size);
+  height: var(--badge-size);
+  padding: 0;
+  
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  z-index: 10;
 }
 
-.badge.material-symbols-outlined {
-  font-size: calc(1em * var(--halfstep));
+.badge.large,
+.badge:not(:empty) {
+  --badge-size: var(--lg);
+  height: var(--badge-size);
+  min-width: var(--badge-size);
+  padding-inline: 4px;
+  
+  font-family: var(--font-family-base);
+  font-size: var(--badge-font-size);
+  font-weight: 500;
+  line-height: 1;
 }
 
-.badge.lg {
-  font-size: calc(1em * var(--halfstep));
+.badge-wrap {
+  position: relative;
+  display: inline-flex;
 }

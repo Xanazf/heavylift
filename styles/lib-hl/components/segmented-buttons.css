@@ -1,0 +1,17 @@
+.segmented-btn-group {
+  display: inline-flex;
+  border: 1px solid var(--hl-outline);
+  border-radius: 100em;
+  overflow: hidden;
+}
+
+.segmented-btn {
+  padding: 10px 24px;
+  background: transparent;
+  border-right: 1px solid var(--hl-outline);
+  cursor: pointer;
+}
+
+.segmented-btn.selected {
+  background-color: var(--hl-secondarycontainer);
+}

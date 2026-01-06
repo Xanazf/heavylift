@@ -1,11 +1,40 @@
 {
+  "name": "heavylift",
+  "version": "0.1.0",
+  "description": "A lightweight CSS design system merging MD3, LiftKit, and Tailwind-like utility.",
+  "main": "dist/global.css",
+  "style": "dist/global.css",
+  "types": "scripts/core.ts",
   "scripts": {
-    "generate-colors": "tsx scripts/generateColorScheme.ts"
+    "generate-colors": "tsx scripts/generateColorScheme.ts",
+    "test": "vitest run",
+    "build": "lightningcss styles/global.css -o dist/global.css --minify --bundle --targets '>= 0.25%'",
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "check": "biome check --write . && tsc --noEmit"
   },
+  "exports": {
+    ".": "./dist/global.css",
+    "./styles": "./dist/global.css",
+    "./generator": "./scripts/colorSchemeGenerator.ts",
+    "./core": "./scripts/core.ts"
+  },
+  "files": [
+    "dist",
+    "scripts",
+    "styles"
+  ],
   "dependencies": {
+    "@material/material-color-utilities": "^0.3.0"
+  },
+  "devDependencies": {
     "@types/node": "^24.7.2",
     "chalk": "^5.6.2",
     "commander": "^14.0.1",
-    "figlet": "^1.9.3"
+    "figlet": "^1.9.3",
+    "lightningcss-cli": "^1.30.2",
+    "typescript": "^5.0.0",
+    "tsx": "^4.0.0",
+    "vitest": "^4.0.16"
   }
 }

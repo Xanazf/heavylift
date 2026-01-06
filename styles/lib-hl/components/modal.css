@@ -1,58 +1,112 @@
-.modal-wrap {
+.modal-backdrop {
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 99;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
+  inset: 0;
+  background-color: var(--hl-scrim);
+  opacity: 0.32;
+  z-index: 1000;
+  
   display: flex;
   align-items: center;
   justify-content: center;
-
-  flex-direction: column;
+  
+  visibility: hidden;
+  transition: opacity 200ms linear, visibility 0s linear 200ms;
 }
 
-.modal-module {
-  position: relative;
-  z-index: 1;
-  background-color: var(--hl-surface);
-  border-radius: var(--md);
-  overflow: hidden;
-  max-height: 61.8vh;
-  max-width: 61.8vw;
+.modal-backdrop.open {
+  visibility: visible;
+  transition: opacity 200ms linear;
+}
+
+.modal {
+  --dialog-container-color: var(--hl-surfacecontainerhigh);
+  --dialog-content-color: var(--hl-onsurfacevariant);
+  --dialog-title-color: var(--hl-onsurface);
+  --dialog-elevation: var(--shadow-xl);
+  --dialog-radius: var(--lg);
+  --dialog-padding: var(--xl);
+  --dialog-min-width: 280px;
+  --dialog-max-width: 560px;
+  
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  z-index: 1001;
+  
+  width: min(calc(100vw - 2em), var(--dialog-max-width));
+  min-width: var(--dialog-min-width);
+  
+  background-color: var(--dialog-container-color);
+  color: var(--dialog-content-color);
+  border-radius: var(--dialog-radius);
+  box-shadow: var(--dialog-elevation);
+  
   display: flex;
   flex-direction: column;
+  gap: var(--md);
+  padding: var(--dialog-padding);
+  
+  opacity: 0;
+  visibility: hidden;
+  transition: 
+    opacity 200ms ease, 
+    transform 200ms cubic-bezier(0.2, 0, 0, 1), 
+    visibility 0s linear 200ms;
 }
 
-@media (max-width: 769px) {
-  .modal-module {
-    max-height: 80vh;
-    max-width: 85vw;
-  }
+.modal.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+  transition-delay: 0s;
 }
 
-.modal-module.sm {
-  width: 35ch;
+.modal-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--md);
+  color: var(--dialog-title-color);
 }
 
-.modal-module.md {
-  width: 80ch;
+.modal-icon {
+  color: var(--hl-secondary);
+  font-size: var(--xl);
+  align-self: center;
+  margin-bottom: var(--md);
 }
 
-.modal-module.lg {
-  width: 61.8vw;
+.modal-title {
+  font-family: var(--font-family-base);
+  font-size: var(--heading-font-size);
+  font-weight: 400;
+  line-height: var(--heading-line-height);
+  margin: 0;
 }
 
-.modal-module:has(div > .tiptap) {
-  height: 61.8vh;
+.modal-body {
+  font-size: var(--body-font-size);
+  line-height: var(--body-line-height);
+  color: var(--dialog-content-color);
+  overflow-y: auto;
+  max-height: 60vh;
 }
 
-.modal-scrim {
-  position: absolute;
-  z-index: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(5px);
+.modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--sm);
+  padding-top: var(--md);
+}
+
+.modal.fullscreen {
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  max-height: none;
+  border-radius: 0;
+  transform: none;
+  top: 0;
+  left: 0;
 }

@@ -16,7 +16,7 @@
  * - Simplify Conditional: Clearer validation logic
  */
 
-import { writeFileSync, existsSync, mkdirSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { generateColorSchemeFromColors } from "./colorSchemeGenerator";
 
@@ -75,7 +75,7 @@ function generateFilename(colors: string[]): string {
     .toISOString()
     .replace(/[:.]/g, "-")
     .slice(0, 19);
-  const colorSuffix = colors.map((c) => c.slice(1)).join("-");
+  const colorSuffix = colors.map(c => c.slice(1)).join("-");
   return `color-scheme-${colorSuffix}-${timestamp}`;
 }
 
@@ -103,10 +103,10 @@ function generateSummary(
   baseFilename: string,
   colorScheme: Record<string, string>
 ): string {
-  const lightColorCount = Object.keys(colorScheme).filter((k) =>
+  const lightColorCount = Object.keys(colorScheme).filter(k =>
     k.startsWith("light__")
   ).length;
-  const darkColorCount = Object.keys(colorScheme).filter((k) =>
+  const darkColorCount = Object.keys(colorScheme).filter(k =>
     k.startsWith("dark__")
   ).length;
 
@@ -144,7 +144,10 @@ function writeSummary(
   baseFilename: string,
   summary: string
 ): string {
-  const summaryPath = join(outputDir, `${baseFilename}-summary.txt`);
+  const summaryPath = join(
+    outputDir,
+    `${baseFilename}-summary.txt`
+  );
   writeFileSync(summaryPath, summary, "utf8");
   return summaryPath;
 }
@@ -154,7 +157,9 @@ function writeSummary(
 // ============================================================================
 
 function logInputColors(colors: string[]): void {
-  console.log(`Generating color scheme from ${colors.length} color(s):`);
+  console.log(
+    `Generating color scheme from ${colors.length} color(s):`
+  );
   colors.forEach((color, index) => {
     console.log(`  Color ${index + 1}: ${color}`);
   });
@@ -169,7 +174,9 @@ function logSuccess(
   console.log(`✅ JSON color scheme saved to: ${jsonPath}`);
   console.log(`✅ CSS custom properties saved to: ${cssPath}`);
   console.log(`📋 Summary saved to: ${summaryPath}`);
-  console.log("\n🎨 Color scheme generation completed successfully!");
+  console.log(
+    "\n🎨 Color scheme generation completed successfully!"
+  );
   console.log(`📁 All files saved in: ${outputDir}`);
 }
 
@@ -190,7 +197,8 @@ function main(): void {
   try {
     logInputColors(args);
 
-    const { colorScheme, json, css } = generateColorSchemeFromColors(args);
+    const { colorScheme, json, css } =
+      generateColorSchemeFromColors(args);
 
     const outputDir = join(process.cwd(), OUTPUT_DIR_NAME);
     ensureOutputDirectory(outputDir);
@@ -203,8 +211,16 @@ function main(): void {
       css
     );
 
-    const summary = generateSummary(args, baseFilename, colorScheme);
-    const summaryPath = writeSummary(outputDir, baseFilename, summary);
+    const summary = generateSummary(
+      args,
+      baseFilename,
+      colorScheme
+    );
+    const summaryPath = writeSummary(
+      outputDir,
+      baseFilename,
+      summary
+    );
 
     logSuccess(jsonPath, cssPath, summaryPath, outputDir);
   } catch (error) {

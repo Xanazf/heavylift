@@ -1,0 +1,173 @@
+.fab {
+  --fab-container-color: var(--hl-primarycontainer);
+  --fab-content-color: var(--hl-onprimarycontainer);
+  --fab-elevation: var(--shadow-md);
+  --fab-hover-elevation: var(--shadow-lg);
+  
+  --fab-size: var(--xl);
+  --fab-icon-size: var(--lg);
+  --fab-radius: calc(var(--fab-size) * var(--quarterstep-dec));
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  
+  width: var(--fab-size);
+  height: var(--fab-size);
+  border-radius: var(--fab-radius);
+  
+  background-color: var(--fab-container-color);
+  color: var(--fab-content-color);
+  box-shadow: var(--fab-elevation);
+  
+  font-size: 1em;
+  
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: 
+    box-shadow 200ms cubic-bezier(0.2, 0, 0, 1),
+    transform 200ms cubic-bezier(0.2, 0, 0, 1),
+    background-color 200ms linear;
+    
+  border: none;
+  padding: 0;
+}
+
+.fab > i, 
+.fab > svg {
+  font-size: var(--fab-icon-size);
+  width: var(--fab-icon-size);
+  height: var(--fab-icon-size);
+  fill: currentColor;
+}
+
+.fab.surface {
+  --fab-container-color: var(--hl-surfacecontainerhigh);
+  --fab-content-color: var(--hl-primary);
+}
+
+.fab.secondary {
+  --fab-container-color: var(--hl-secondarycontainer);
+  --fab-content-color: var(--hl-onsecondarycontainer);
+}
+
+.fab.tertiary {
+  --fab-container-color: var(--hl-tertiarycontainer);
+  --fab-content-color: var(--hl-ontertiarycontainer);
+}
+
+.fab.sm {
+  --fab-size: var(--lg); 
+  --fab-icon-size: var(--md);
+  --fab-radius: calc(var(--fab-size) * var(--quarterstep-dec)); 
+}
+
+.fab.lg {
+  --fab-size: var(--3xl); 
+  --fab-icon-size: var(--xl);
+  --fab-radius: calc(var(--fab-size) * var(--quarterstep-dec)); 
+}
+
+.fab.extended {
+  width: auto;
+  height: var(--fab-size);
+  padding-inline: var(--md);
+  gap: var(--sm);
+  border-radius: 100em;
+}
+
+.fab.extended > span {
+  font-family: var(--font-family-base);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.fab:hover {
+  box-shadow: var(--fab-hover-elevation);
+}
+
+.fab:active {
+  box-shadow: var(--fab-elevation);
+  transform: scale(0.98);
+}
+
+.fab::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  opacity: 0;
+  transition: opacity 200ms linear;
+  pointer-events: none;
+}
+
+.fab:hover::after {
+  opacity: 0.08;
+}
+
+.fab:active::after {
+  opacity: 0.12;
+}
+
+.fab-menu {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: var(--md);
+}
+
+.fab-menu-items {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: var(--sm);
+  
+  opacity: 0;
+  transform: translateY(1em) scale(0.8);
+  pointer-events: none;
+  transition: 
+    opacity 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+  position: absolute;
+  bottom: 100%;
+  padding-bottom: var(--md);
+}
+
+.fab-menu.open .fab-menu-items {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.fab-menu-items .fab {
+  --fab-size: var(--lg);
+  --fab-icon-size: var(--md);
+}
+
+.fab-menu-item-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--sm);
+  position: relative;
+}
+
+.fab-menu-label {
+  background-color: var(--hl-surfacecontainerhigh);
+  color: var(--hl-onbackground);
+  padding: var(--2xs) var(--sm);
+  border-radius: var(--xs);
+  font-size: var(--caption-font-size);
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+  
+  position: absolute;
+  right: 100%;
+  margin-right: var(--sm);
+  
+  opacity: 0.9;
+}

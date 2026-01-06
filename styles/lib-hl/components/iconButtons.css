@@ -1,51 +1,95 @@
 .icon-button {
-  --button-font-size: 1em;
-  position: relative;
-  overflow: hidden;
-  display: flex;
+  --ib-container-color: transparent;
+  --ib-content-color: var(--hl-onsurfacevariant);
+  --ib-outline-color: transparent;
+  --ib-state-layer-color: var(--hl-onsurfacevariant);
+  
+  --ib-size: var(--xl);
+  --ib-icon-size: var(--lg);
+  --ib-radius: 100em;
+  
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--xs);
-  border-radius: 100em;
+  
+  width: var(--ib-size);
+  height: var(--ib-size);
+  border-radius: var(--ib-radius);
+  
+  background-color: var(--ib-container-color);
+  color: var(--ib-content-color);
+  border: 1px solid var(--ib-outline-color);
+  
   cursor: pointer;
-  font-size: calc(1em * var(--quarterstep));
-  /* borrowed from heading */
-  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.icon-button > i,
+.icon-button > svg {
+  font-size: var(--ib-icon-size);
+  width: var(--ib-icon-size);
+  height: var(--ib-icon-size);
+  fill: currentColor;
+}
+
+.icon-button.standard {
+  --ib-content-color: var(--hl-onsurfacevariant);
+  --ib-state-layer-color: var(--hl-onsurfacevariant);
+}
+
+.icon-button.filled {
+  --ib-container-color: var(--hl-primary);
+  --ib-content-color: var(--hl-onprimary);
+  --ib-state-layer-color: var(--hl-onprimary);
+}
+
+.icon-button.tonal {
+  --ib-container-color: var(--hl-secondarycontainer);
+  --ib-content-color: var(--hl-onsecondarycontainer);
+  --ib-state-layer-color: var(--hl-onsecondarycontainer);
 }
 
 .icon-button.outlined {
-  border: 1px solid;
-  border-color: var(--hl-outlinevariant);
-  background-color: transparent;
-  transition: border-color 210ms ease-in;
-
-  &:hover {
-    border-color: var(--hl-outline);
-  }
+  --ib-outline-color: var(--hl-outline);
+  --ib-content-color: var(--hl-onsurfacevariant);
+  --ib-state-layer-color: var(--hl-onsurfacevariant);
 }
-
-.icon-button.text {
-  border: 1px solid transparent;
-  background-color: transparent;
-  color: var(--hl-tertiary);
-}
-
-.icon-button.lowpad {
-  padding: var(--3xs);
-}
-
-.icon-button.xs {
-  font-size: calc(1em / var(--halfstep));
+.icon-button.outlined:hover {
+  --ib-container-color: var(--hl-surface);
+  --ib-content-color: var(--hl-onsurface);
+  --ib-outline-color: var(--hl-onsurface);
 }
 
 .icon-button.sm {
-  font-size: 1em;
+  --ib-size: var(--lg);
+  --ib-icon-size: var(--md);
 }
 
 .icon-button.lg {
-  font-size: calc(1em * var(--halfstep));
+  --ib-size: var(--3xl);
+  --ib-icon-size: var(--xl);
 }
 
-.icon-button.xl {
-  font-size: calc(1em * var(--wholestep));
+.icon-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--ib-state-layer-color);
+  opacity: 0;
+  transition: opacity 200ms linear;
+  pointer-events: none;
+}
+.icon-button:hover::after {
+  opacity: 0.08;
+}
+.icon-button:active::after {
+  opacity: 0.12;
+}
+
+.icon-button:disabled {
+  opacity: 0.38;
+  pointer-events: none;
+  background-color: transparent; 
 }

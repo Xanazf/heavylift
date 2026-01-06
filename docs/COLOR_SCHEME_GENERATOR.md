@@ -51,7 +51,7 @@ This will create files in the `generated-colors/` directory:
 ### Using in Code
 
 ```typescript
-import { generateColorScheme, generateColorSchemeFromColors } from '../scripts/colorSchemeGenerator';
+import { generateColorScheme, generateColorSchemeFromColors } from '../scripts/core';
 
 // Generate from a single color
 const scheme1 = generateColorScheme('#0051e0');
@@ -95,78 +95,6 @@ The generated color scheme follows the Material Design 3 specification (referenc
 - **Dark theme**: All colors optimized for dark backgrounds
 - **Fixed colors**: Colors that remain consistent across themes
 
-## API Reference
-
-### `generateColorScheme(color1, color2?, color3?, color4?)`
-
-Generates a complete color scheme from 1-4 input colors.
-
-**Parameters:**
-- `color1` (string): Primary color in hex format (required)
-- `color2` (string, optional): Secondary color in hex format
-- `color3` (string, optional): Tertiary color in hex format
-- `color4` (string, optional): Error color in hex format
-
-**Returns:** `ColorScheme` object with all color properties
-
-### `generateColorSchemeFromColors(colors: string[])`
-
-Utility function that takes an array of 1-4 colors and returns the scheme plus formatted outputs.
-
-**Parameters:**
-- `colors` (string[]): Array of 1-4 hex colors
-
-**Returns:** Object with:
-- `colorScheme`: Complete ColorScheme object
-- `json`: JSON string representation
-- `css`: CSS custom properties string
-
-### `exportColorSchemeToJson(colorScheme, filename?)`
-
-Exports a color scheme to a JSON file.
-
-**Parameters:**
-- `colorScheme` (ColorScheme): The color scheme to export
-- `filename` (string, optional): Output filename (default: 'color-scheme.json')
-
-### `generateCssCustomProperties(colorScheme)`
-
-Converts a color scheme to CSS custom properties format.
-
-**Parameters:**
-- `colorScheme` (ColorScheme): The color scheme to convert
-
-**Returns:** CSS string with custom properties
-
-## Color Generation Algorithm
-
-### Dynamic Color System (STYLING.md Principle)
-This generator creates dynamic color systems that adapt based on inputs, rather than static fixed palettes.
-
-### Single Color Input
-When only one color is provided:
-- **Primary**: Uses the input color
-- **Secondary**: Generated using 60° hue rotation (analogous harmony)
-- **Tertiary**: Generated using -60° hue rotation (analogous harmony)
-- **Error**: Uses standard error color (#bb0e45) - meaning depends on context
-
-### Multiple Color Inputs
-When multiple colors are provided, they are used directly for primary, secondary, tertiary, and error roles respectively. The system maintains harmonic relationships while preserving brand identity - a key principle of dynamic color systems.
-
-### Automatic Variants
-For each base color, the system automatically generates:
-- **Light theme variants**: Lighter containers, darker text colors
-- **Dark theme variants**: Darker containers, lighter text colors
-- **Contrast colors**: Automatically calculated for optimal readability
-- **Semantic colors**: Warning (orange), Success (green), Info (blue variant)
-- **Context adaptations**: Colors adjust meaning based on component usage
-- **Cultural considerations**: Color choices account for common user expectations
-
-### Color Adjustments
-- **Lightness adjustments**: ±25-45% for theme variants
-- **Contrast calculation**: Ensures WCAG compliance
-- **Saturation preservation**: Maintains color vibrancy across variants
-
 ## Examples
 
 ### Brand Color Schemes (Dynamic System)
@@ -189,65 +117,42 @@ const custom = generateColorScheme('#ff6b35', '#f7931e', '#ffd23f', '#06d6a0');
 
 ```css
 /* Apply the generated color scheme with context awareness */
-.lk-btn-primary {
-  background-color: var(--light__primary_hlv);
-  color: var(--light__onprimary_hlv);
+.button.filled {
+  background-color: var(--hl-primary);
+  color: var(--hl-onprimary);
   /* Context: Action button - primary color means "main action" */
 }
 
-.lk-error-snackbar {
-  background-color: var(--light__error_hlv);
-  color: var(--light__onerror_hlv);
+.snackbar.error {
+  background-color: var(--hl-error);
+  color: var(--hl-onerror);
   /* Context: Notification - error color means "something went wrong" */
 }
 
-.lk-btn-delete {
-  background-color: var(--light__error_hlv);
-  color: var(--light__onerror_hlv);
+.button.error {
+  background-color: var(--hl-error);
+  color: var(--hl-onerror);
   /* Context: Destructive action - same error color, different meaning */
 }
 
-.lk-card-secondary {
-  background-color: var(--light__secondarycontainer_hlv);
-  color: var(--light__onsecondarycontainer_hlv);
+.card.filled {
+  background-color: var(--hl-secondarycontainer);
+  color: var(--hl-onsecondarycontainer);
   /* Context: Supporting content - secondary color means "less important" */
 }
 
-/* Dark theme support (context remains, colors adapt) */
+/* Dark theme support (context remains, colors adapt automatically via variable definitions) */
 @media (prefers-color-scheme: dark) {
-  .lk-btn-primary {
-    background-color: var(--dark__primary_hlv);
-    color: var(--dark__onprimary_hlv);
-  }
-  
-  .lk-card-secondary {
-    background-color: var(--dark__secondarycontainer_hlv);
-    color: var(--dark__onsecondarycontainer_hlv);
-  }
+  /* Variables automatically switch, no manual overrides needed typically */
 }
 ```
-
-### Integration with Existing HeavyLift Project
-
-To replace the current color scheme in this HeavyLift-based project:
-
-1. Generate your new color scheme:
-   ```bash
-   npm run generate-colors "#your-brand-color"
-   ```
-
-2. Copy the generated CSS into your app's theme layer or a CSS file you manage:
-   ```bash
-   cp generated-colors/color-scheme-*.css path/to/your/app/theme/colors.css
-   ```
-
-3. The existing HeavyLift components will automatically use the new colors!
 
 ## File Structure
 
 ```
 scripts/
-├── colorSchemeGenerator.ts    # Main generator functions
+├── core.ts                    # Main generator functions (browser-safe)
+├── colorSchemeGenerator.ts    # Node.js entry point
 └── generateColorScheme.ts     # CLI tool
 
 generated-colors/             # Output directory (created when using CLI)
@@ -263,16 +168,20 @@ All color variables follow the HeavyLift pattern:
 {theme}__{role}{variant?}_hlv
 ```
 
+And are mapped to semantic variables:
+```
+--hl-{role}{variant?}
+```
+
 Where:
 - `theme`: `light` or `dark`
 - `role`: `primary`, `secondary`, `tertiary`, `error`, `warning`, `success`, `info`, `surface`, etc.
 - `variant`: `container`, `fixed`, `dim`, etc. (optional)
-- `hlv`: Suffix indicating this is a HeavyLift variable
 
 Examples:
-- `light__primary_hlv`: Light theme primary color (for HeavyLift)
-- `dark__primarycontainer_hlv`: Dark theme primary container color (for HeavyLift)
-- `light__onsecondary_hlv`: Light theme text color for secondary backgrounds (for HeavyLift)
+- `--hl-primary`: Primary color (automatically light or dark)
+- `--hl-primarycontainer`: Primary container color
+- `--hl-onsecondary`: Text color for secondary backgrounds
 
 ## Accessibility
 

@@ -1,125 +1,92 @@
 .menu {
-  position: relative;
-}
-
-.menu-toggle {
-  --fontSize: 1em;
-  --pad-y: calc(1em * calc(var(--halfstep) / var(--xl-unitless)));
-
-  display: inline-flex;
-  line-height: var(--halfstep);
-
-  padding: var(--pad-y);
-  padding-left: var(--fontSize);
-  gap: var(--pad-y);
-  border-radius: 100em;
-
-  /* For debugging */
-  background-color: transparent;
-  transition: background-color 0.2s ease;
-
-  position: relative;
+  --menu-container-color: var(--hl-surfacecontainer);
+  --menu-content-color: var(--hl-onsurface);
+  --menu-elevation: var(--shadow-md);
+  --menu-radius: var(--sm);
+  --menu-padding-y: var(--sm);
+  --menu-min-width: 112px;
+  --menu-max-width: 280px;
+  
+  position: absolute;
+  z-index: 100;
+  min-width: var(--menu-min-width);
+  max-width: var(--menu-max-width);
+  
+  background-color: var(--menu-container-color);
+  color: var(--menu-content-color);
+  box-shadow: var(--menu-elevation);
+  border-radius: var(--menu-radius);
+  padding-block: var(--menu-padding-y);
+  
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  cursor: pointer;
-}
-
-.menu-toggle * {
+  
+  opacity: 0;
+  transform: scale(0.8);
+  transform-origin: top left;
+  transition: opacity 200ms ease, transform 200ms cubic-bezier(0.2, 0, 0, 1);
   pointer-events: none;
 }
 
-.menu-toggle.open {
-  background-color: var(--hl-surfacecontainer);
-}
-
-.menu-list {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: calc(var(--bodyBoxHeight) * var(--xs-unitless));
-  border-radius: 1em;
-  transform: scale(0);
-  opacity: 0;
-  overflow: hidden;
-  transition:
-    transform 0.2s ease,
-    opacity 0.2s ease;
-  box-shadow: var(--shadow-xl);
-
-  position: absolute;
-  z-index: 99;
-  min-width: 11.08em;
-
-  padding: 1em;
-  backdrop-filter: blur(10px) saturate(200%) brightness(40%);
-}
-
-@media (max-width: 769px) {
-  .menu-list {
-    min-width: 6em;
-    padding: 0.3em;
-  }
-}
-
-.menu-list.showBelow {
-  transition:
-    max-height 0.2s ease,
-    border-width 0.2s ease,
-    border-radius 0.2s ease;
-  transform: scale(1);
-  left: 0;
-  right: 0;
-  max-height: 0;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border: 1px solid var(--hl-tertiaryfixed);
-  border-top: 0px;
-  margin-left: -1px;
-  margin-right: -1px;
-}
-
-.menu-list-content {
-  position: relative;
-  z-index: 2;
-}
-
-.menu-list-tint-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--hl-surfacecontainerlowest);
-  opacity: 0.5;
-  z-index: 1;
-}
-
-.menu-list.open {
-  transform: scale(1);
+.menu.open {
   opacity: 1;
-}
-
-.menu-list.showBelow.open {
-  max-height: 900px;
+  transform: scale(1);
+  pointer-events: auto;
 }
 
 .menu-item {
-  --largestText: var(--bodyBoxHeight);
-  --pad-y: calc(var(--bodyBoxHeight) * var(--xs-unitless));
-
+  --mi-height: var(--3xl);
+  --mi-padding-x: var(--md);
+  --mi-state-layer-color: var(--hl-onsurface);
+  
   display: flex;
   align-items: center;
-  gap: var(--pad-y);
-
+  gap: var(--md);
+  
+  height: var(--mi-height);
+  padding-inline: var(--mi-padding-x);
+  
+  color: var(--hl-onsurface);
+  font-family: var(--font-family-base);
+  font-size: var(--label-font-size);
+  font-weight: 500;
+  text-decoration: none;
   cursor: pointer;
-
   position: relative;
-  border-radius: var(--pad-y);
-  overflow: hidden;
-
-  padding: var(--pad-y) var(--body-font-size);
+  user-select: none;
 }
 
-.menu-item.active {
-  background-color: var(--hl-surfacecontainer);
-  color: var(--hl-outline);
+.menu-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--mi-state-layer-color);
+  opacity: 0;
+  transition: opacity 200ms linear;
   pointer-events: none;
+}
+.menu-item:hover::after {
+  opacity: 0.08;
+}
+.menu-item:active::after {
+  opacity: 0.12;
+}
+
+.menu-item > i,
+.menu-item > svg {
+  font-size: var(--lg);
+  color: var(--hl-onsurfacevariant);
+}
+
+.menu-item-trailing {
+  margin-left: auto;
+  color: var(--hl-onsurfacevariant);
+  font-size: var(--caption-font-size);
+}
+
+.menu-divider {
+  height: 1px;
+  background-color: var(--hl-outlinevariant);
+  margin-block: var(--sm);
 }

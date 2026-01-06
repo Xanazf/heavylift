@@ -64,12 +64,6 @@ These variables work seamlessly with Tailwind's arbitrary value syntax:
 - **Value inlining**: Frequently used values are inlined for performance
 - **Cascade optimization**: CSS cascade is optimized for golden ratio relationships
 
-#### Performance Benefits
-1. **Smaller bundles**: Lightning CSS + golden ratio variables = optimal file size
-2. **Faster compilation**: Lightning CSS is significantly faster than PostCSS
-3. **Better caching**: Consistent variable usage improves browser caching
-4. **Runtime efficiency**: Mathematical relationships are pre-calculated
-
 ---
 
 ## Spacing
@@ -88,31 +82,11 @@ These variables work seamlessly with Tailwind's arbitrary value syntax:
 2. **Content changes context**: Spacing decisions are dynamic and must adapt to evolving content and purpose
 3. **Preset systems reduce guesswork**: Using predefined spacing scales ensures consistency and prevents poor spacing choices
 
-### Key Principles
-- Understanding spacing requires more than equal margins; optical corrections are key to visual harmony
-- Relationships between elements determine how closely they should be spaced
-- Mathematical symmetry does not always equate to visual balance
-- Spacing should be **dynamic and relative**, not fixed in pixels
-- **Root font size** is the base unit for spacing, even for non-text elements
-- Spacing is always relative to the **larger element** in a container for visual consistency
-- Spacing uses **seven preset spacing variables** based on the golden ratio for scalable harmony
-- Optical corrections in card padding and button spacing improve **visual balance and symmetry**
-- Utility classes simplify spacing application by referencing element size rather than fixed units
-
----
-
-## Implementation Guidelines
+### Implementation Guidelines
 
 ### Key Principles
 - Defaults are for mobile:
   - Add `sm:/md:/lg:` (`max-width >= 640/769/1200px`)variants to enhance
-- Continue implementing Tailwind utilities enhanced with the design system:
-  - containers,
-  - section paddings,
-  - grid helpers,
-  - text tokens,
-  - card,
-  - buttons
 - Use the golden ratio spacing system rather than arbitrary values
 - Apply optical corrections for visual balance in UI components
 - Leverage exponential spacing scale for harmonious proportions
@@ -121,7 +95,7 @@ These variables work seamlessly with Tailwind's arbitrary value syntax:
 
 #### Do
 - Default to single-column layouts; grow columns at `sm: md: lg:` breakpoints
-- Use spacing variables; reference the golden ratio system instead of arbitrary values
+- Use spacing variables; reference the golden ratio system (e.g., `var(--md)`) instead of arbitrary values
 - Apply optical corrections; account for visual weight and perceived balance
 - Let containers manage padding; use the responsive container system
 - Consider content relationships; use spacing to communicate information hierarchy
