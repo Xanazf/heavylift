@@ -108,9 +108,9 @@ export function generateColorScheme(
       isDark,
       0.0
     );
-    if (secondaryArgb) scheme.secondaryPalette = TonalPalette.fromInt(secondaryArgb);
-    if (tertiaryArgb) scheme.tertiaryPalette = TonalPalette.fromInt(tertiaryArgb);
-    if (errorArgb) scheme.errorPalette = TonalPalette.fromInt(errorArgb);
+    if (secondaryArgb) (scheme as any).secondaryPalette = TonalPalette.fromInt(secondaryArgb);
+    if (tertiaryArgb) (scheme as any).tertiaryPalette = TonalPalette.fromInt(tertiaryArgb);
+    if (errorArgb) (scheme as any).errorPalette = TonalPalette.fromInt(errorArgb);
     return scheme;
   };
 

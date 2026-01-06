@@ -1,7 +1,0 @@
-version = "1.0"
-
-model = "gpt-5"
-
-imports = [
-  "agents/refactor.toml",
-]

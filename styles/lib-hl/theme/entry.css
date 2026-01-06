@@ -7,10 +7,8 @@
 *    2xl: 96rem (1536px)
 */
 
-@layer theme {
-  @import "./vars.css";
-  @import "./colors.css";
-  @import "./theme.css";
-  @import "./background-colors.css";
-  @import "./view-transitions.css";
-}
+@import "./vars.css";
+@import "./colors.css";
+@import "./theme.css";
+@import "./background-colors.css";
+@import "./view-transitions.css";

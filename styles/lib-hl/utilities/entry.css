@@ -1,22 +1,20 @@
-@layer utilities {
-  @import "./align-items.css";
-  @import "./align-self.css";
-  @import "./aspect-ratios.css";
-  @import "./border-radius.css";
-  @import "./column-span.css";
-  @import "./display.css";
-  @import "./flexboxes.css";
-  @import "./gaps.css";
-  @import "./grid.css";
-  @import "./justify-content.css";
-  @import "./justify-items.css";
-  @import "./margins.css";
-  @import "./opacity.css";
-  @import "./overflow.css";
-  @import "./padding.css";
-  @import "./pointer-events.css";
-  @import "./position.css";
-  @import "./shadows.css";
-  @import "./text-alignment.css";
-}
-
+@import "./align-items.css";
+@import "./align-self.css";
+@import "./aspect-ratios.css";
+@import "./border-radius.css";
+@import "./column-span.css";
+@import "./display.css";
+@import "./flexboxes.css";
+@import "./gaps.css";
+@import "./grid.css";
+@import "./justify-content.css";
+@import "./justify-items.css";
+@import "./margins.css";
+@import "./opacity.css";
+@import "./overflow.css";
+@import "./padding.css";
+@import "./pointer-events.css";
+@import "./position.css";
+@import "./responsive-utilities.css";
+@import "./shadows.css";
+@import "./text-alignment.css";

@@ -30,8 +30,27 @@ const HEX_COLOR_REGEX = /^#[0-9A-Fa-f]{6}$/;
 const OUTPUT_DIR_NAME = "generated-colors";
 
 const ERROR_MESSAGES = {
-  INVALID_COUNT: `Usage: npm run generate-colors <color1> [color2] [color3] [color4]
-Example: npm run generate-colors "#ff0000" "#00ff00"`,
+  INVALID_COUNT: `
+❌ Invalid input: You must provide between 1 and 4 hex color codes.
+
+Usage:
+  npm run generate-colors <primary> [secondary] [tertiary] [error]
+
+Examples:
+  1 Color  (Primary only):
+    npm run generate-colors "#0051e0"
+
+  2 Colors (Primary + Secondary):
+    npm run generate-colors "#0051e0" "#40617f"
+
+  3 Colors (Primary + Secondary + Tertiary):
+    npm run generate-colors "#0051e0" "#40617f" "#006878"
+
+  4 Colors (All Roles):
+    npm run generate-colors "#0051e0" "#40617f" "#006878" "#bb0e45"
+
+Note: Colors must be in hex format (e.g. #RRGGBB).
+`,
   INVALID_HEX: (color: string) =>
     `Invalid hex color: ${color}. Please use format #RRGGBB`,
   GENERATION_FAILED: "Error generating color scheme:",

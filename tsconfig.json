@@ -9,7 +9,6 @@
     "target": "es2020",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "incremental": true,
     "baseUrl": "."
   }
 }

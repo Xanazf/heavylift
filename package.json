@@ -2,27 +2,39 @@
   "name": "heavylift",
   "version": "0.1.0",
   "description": "A lightweight CSS design system merging MD3, LiftKit, and Tailwind-like utility.",
-  "main": "dist/global.css",
-  "style": "dist/global.css",
-  "types": "scripts/core.ts",
+  "main": "./dist/core.js",
+  "module": "./dist/core.mjs",
+  "types": "./dist/core.d.ts",
+  "style": "./dist/global.css",
+  "bin": {
+    "heavylift-gen": "./dist/generateColorScheme.mjs"
+  },
   "scripts": {
     "generate-colors": "tsx scripts/generateColorScheme.ts",
     "test": "vitest run",
-    "build": "lightningcss styles/global.css -o dist/global.css --minify --bundle --targets '>= 0.25%'",
+    "build:css": "lightningcss styles/global.css -o dist/global.css --minify --bundle --targets '>= 0.25%'",
+    "build:ts": "tsup",
+    "build": "npm run build:css && npm run build:ts",
     "lint": "biome lint .",
     "format": "biome format --write .",
-    "check": "biome check --write . && tsc --noEmit"
+    "check": "biome check --write . && tsc --noEmit",
+    "prepublishOnly": "npm run build"
   },
   "exports": {
-    ".": "./dist/global.css",
+    ".": {
+      "types": "./dist/core.d.ts",
+      "import": "./dist/core.mjs",
+      "require": "./dist/core.js"
+    },
     "./styles": "./dist/global.css",
-    "./generator": "./scripts/colorSchemeGenerator.ts",
-    "./core": "./scripts/core.ts"
+    "./generator": {
+      "types": "./dist/colorSchemeGenerator.d.ts",
+      "import": "./dist/colorSchemeGenerator.mjs",
+      "require": "./dist/colorSchemeGenerator.js"
+    }
   },
   "files": [
-    "dist",
-    "scripts",
-    "styles"
+    "dist"
   ],
   "dependencies": {
     "@material/material-color-utilities": "^0.3.0"
@@ -33,8 +45,9 @@
     "commander": "^14.0.1",
     "figlet": "^1.9.3",
     "lightningcss-cli": "^1.30.2",
-    "typescript": "^5.0.0",
+    "tsup": "^8.3.5",
     "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
     "vitest": "^4.0.16"
   }
 }
