@@ -20,13 +20,13 @@
 }
 
 .nav-bar.glass {
+  --nav-bar-container-color: rgba(255, 255, 255, 0.6);
   --nav-bar-container-color: color-mix(
     in srgb,
     var(--hl-surfacecontainer) 60%,
     transparent
   );
   backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-top: 1px solid
     color-mix(in srgb, var(--hl-info) 20%, transparent);
 }

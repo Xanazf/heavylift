@@ -58,13 +58,13 @@
 }
 
 .modal.glass {
+  --dialog-container-color: rgba(255, 255, 255, 0.6);
   --dialog-container-color: color-mix(
     in srgb,
     var(--hl-surfacecontainerhigh) 60%,
     transparent
   );
   backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid
     color-mix(in srgb, var(--hl-info) 20%, transparent);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);

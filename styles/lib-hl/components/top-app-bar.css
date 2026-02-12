@@ -9,13 +9,13 @@
 }
 
 .top-app-bar.glass {
+  background-color: rgba(255, 255, 255, 0.6);
   background-color: color-mix(
     in srgb,
     var(--hl-surface) 60%,
     transparent
   );
   backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid
     color-mix(in srgb, var(--hl-info) 20%, transparent);
   position: sticky;

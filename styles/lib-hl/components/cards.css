@@ -56,6 +56,7 @@
 }
 
 .card.glass {
+  --card-container-color: rgba(255, 255, 255, 0.6);
   --card-container-color: color-mix(
     in srgb,
     var(--hl-surface) 60%,
@@ -68,7 +69,6 @@
   );
   --card-elevation: var(--shadow-sm);
   backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: none;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
   position: relative;

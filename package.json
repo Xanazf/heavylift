@@ -14,7 +14,7 @@
     "scaffold": "tsx scripts/scaffold.ts",
     "test": "vitest run",
     "release": "npm run check && npm run test && npm run build && npm publish --access public",
-    "build:css": "lightningcss styles/global.css -o dist/global.css --minify --bundle --targets '>= 0.25%'",
+    "build:css": "lightningcss styles/global.css -o dist/global.css --minify --bundle --targets '>= 0.25%' && find styles/lib-hl -name '*.ttf' -exec cp {} dist/ ';' && find styles/lib-hl -name '*.woff2' -exec cp {} dist/ ';'",
     "build:ts": "tsup",
     "build": "npm run build:css && npm run build:ts",
     "lint": "biome lint .",
