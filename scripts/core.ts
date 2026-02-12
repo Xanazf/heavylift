@@ -44,31 +44,55 @@ export type SchemeVariant =
   | "rainbow";
 
 /** Strategy for auto-generating accent hues. */
-export type ColorStrategy = "complementary" | "analogous" | "triadic";
+export type ColorStrategy =
+  | "complementary"
+  | "analogous"
+  | "triadic";
 
 /** A collection of CSS variable names mapped to their hex color values. */
 export interface ColorScheme extends Record<string, string> {
   [key: string]: string;
 }
 
-const CORE_PALETTES = ["primary", "secondary", "tertiary", "error"];
+const CORE_PALETTES = [
+  "primary",
+  "secondary",
+  "tertiary",
+  "error",
+];
 const FIXED_ROLES = ["primary", "secondary", "tertiary"];
 const SURFACE_ROLES = [
-  "background", "onBackground", "surface", "onSurface",
-  "surfaceVariant", "onSurfaceVariant", "outline", "outlineVariant",
-  "shadow", "scrim", "inverseSurface", "inverseOnSurface", "inversePrimary",
-  "surfaceContainerLowest", "surfaceContainerLow", "surfaceContainer",
-  "surfaceContainerHigh", "surfaceContainerHighest", "surfaceDim", "surfaceBright"
+  "background",
+  "onBackground",
+  "surface",
+  "onSurface",
+  "surfaceVariant",
+  "onSurfaceVariant",
+  "outline",
+  "outlineVariant",
+  "shadow",
+  "scrim",
+  "inverseSurface",
+  "inverseOnSurface",
+  "inversePrimary",
+  "surfaceContainerLowest",
+  "surfaceContainerLow",
+  "surfaceContainer",
+  "surfaceContainerHigh",
+  "surfaceContainerHighest",
+  "surfaceDim",
+  "surfaceBright",
 ];
 
 // =============================================================================
 // Internal Helpers
 // ============================================================================
 
-const sanitizeHue = (hue: number): number => ((hue % 360) + 360) % 360;
+const sanitizeHue = (hue: number): number =>
+  ((hue % 360) + 360) % 360;
 
 /**
- * Prevents muddy accents by pushing hues out of the 70-100 (olive) range 
+ * Prevents muddy accents by pushing hues out of the 70-100 (olive) range
  * if they are intended to be accent colors.
  */
 function calibrateAccentHue(hue: number): number {
@@ -77,7 +101,10 @@ function calibrateAccentHue(hue: number): number {
   return h;
 }
 
-function getHex(scheme: DynamicScheme, role: keyof typeof MaterialDynamicColors): string {
+function getHex(
+  scheme: DynamicScheme,
+  role: keyof typeof MaterialDynamicColors
+): string {
   const dynamicColor = MaterialDynamicColors[role];
   if (!dynamicColor) return "#000000";
   // @ts-expect-error: MCU internal types
@@ -87,22 +114,27 @@ function getHex(scheme: DynamicScheme, role: keyof typeof MaterialDynamicColors)
 /**
  * Orchestrates the application of Color Strategy onto a Material Scheme.
  */
-function applyStrategy(scheme: any, strategy: ColorStrategy, seedHct: Hct) {
+function applyStrategy(
+  scheme: any,
+  strategy: ColorStrategy,
+  seedHct: Hct
+) {
   // We keep the Material Scheme's intended chroma but override the hue.
   // This preserves the "Vibe" (e.g. TonalSpot = muted, Vibrant = punchy)
-  
+
   // Secondary Hue
-  let sHue = seedHct.hue + (strategy === "triadic" ? 120 : 30);
+  const sHue = seedHct.hue + (strategy === "triadic" ? 120 : 30);
   scheme.secondaryPalette = TonalPalette.fromHueAndChroma(
-    sanitizeHue(sHue), 
+    sanitizeHue(sHue),
     scheme.secondaryPalette.chroma
   );
 
   // Tertiary Hue
-  let tHue = seedHct.hue + (strategy === "complementary" ? 180 : 240);
+  let tHue =
+    seedHct.hue + (strategy === "complementary" ? 180 : 240);
   tHue = calibrateAccentHue(tHue);
   scheme.tertiaryPalette = TonalPalette.fromHueAndChroma(
-    sanitizeHue(tHue), 
+    sanitizeHue(tHue),
     Math.max(scheme.tertiaryPalette.chroma, 32) // Ensure it's never too gray
   );
 }
@@ -124,22 +156,23 @@ export function generateColorScheme(
 
   const themes = [
     { name: "light", isDark: false },
-    { name: "dark", isDark: true }
+    { name: "dark", isDark: true },
   ];
 
   for (const { name, isDark } of themes) {
-    const SchemeClass = {
-      tonalspot: SchemeTonalSpot,
-      expressive: SchemeExpressive,
-      fidelity: SchemeFidelity,
-      "fruit-salad": SchemeFruitSalad,
-      monochrome: SchemeMonochrome,
-      neutral: SchemeNeutral,
-      rainbow: SchemeRainbow,
-      vibrant: SchemeVibrant
-    }[variant] || SchemeVibrant;
+    const SchemeClass =
+      {
+        tonalspot: SchemeTonalSpot,
+        expressive: SchemeExpressive,
+        fidelity: SchemeFidelity,
+        "fruit-salad": SchemeFruitSalad,
+        monochrome: SchemeMonochrome,
+        neutral: SchemeNeutral,
+        rainbow: SchemeRainbow,
+        vibrant: SchemeVibrant,
+      }[variant] || SchemeVibrant;
 
-    const scheme = new SchemeClass(seedHct, isDark, 0.0);
+    const scheme: any = new SchemeClass(seedHct, isDark, 0.0);
 
     // 1. Apply Theory-based redirection if user didn't provide specific colors
     if (!secondaryHex || !tertiaryHex) {
@@ -147,9 +180,18 @@ export function generateColorScheme(
     }
 
     // 2. User Overrides (highest priority)
-    if (secondaryHex) scheme.secondaryPalette = TonalPalette.fromInt(argbFromHex(secondaryHex));
-    if (tertiaryHex) scheme.tertiaryPalette = TonalPalette.fromInt(argbFromHex(tertiaryHex));
-    if (errorHex) scheme.errorPalette = TonalPalette.fromInt(argbFromHex(errorHex));
+    if (secondaryHex)
+      scheme.secondaryPalette = TonalPalette.fromInt(
+        argbFromHex(secondaryHex)
+      );
+    if (tertiaryHex)
+      scheme.tertiaryPalette = TonalPalette.fromInt(
+        argbFromHex(tertiaryHex)
+      );
+    if (errorHex)
+      scheme.errorPalette = TonalPalette.fromInt(
+        argbFromHex(errorHex)
+      );
 
     const addColor = (key: string, value: string) => {
       result[`${name}__${key.toLowerCase()}_hlv`] = value;
@@ -160,8 +202,14 @@ export function generateColorScheme(
       const cap = role.charAt(0).toUpperCase() + role.slice(1);
       addColor(role, getHex(scheme, role as any));
       addColor(`on${role}`, getHex(scheme, `on${cap}` as any));
-      addColor(`${role}container`, getHex(scheme, `${role}Container` as any));
-      addColor(`on${role}container`, getHex(scheme, `on${cap}Container` as any));
+      addColor(
+        `${role}container`,
+        getHex(scheme, `${role}Container` as any)
+      );
+      addColor(
+        `on${role}container`,
+        getHex(scheme, `on${cap}Container` as any)
+      );
     }
 
     for (const role of SURFACE_ROLES) {
@@ -170,28 +218,54 @@ export function generateColorScheme(
 
     for (const role of FIXED_ROLES) {
       const cap = role.charAt(0).toUpperCase() + role.slice(1);
-      addColor(`${role}fixed`, getHex(scheme, `${role}Fixed` as any));
-      addColor(`${role}fixeddim`, getHex(scheme, `${role}FixedDim` as any));
-      addColor(`on${role}fixed`, getHex(scheme, `on${cap}Fixed` as any));
-      addColor(`on${role}fixedvariant`, getHex(scheme, `on${cap}FixedVariant` as any));
+      addColor(
+        `${role}fixed`,
+        getHex(scheme, `${role}Fixed` as any)
+      );
+      addColor(
+        `${role}fixeddim`,
+        getHex(scheme, `${role}FixedDim` as any)
+      );
+      addColor(
+        `on${role}fixed`,
+        getHex(scheme, `on${cap}Fixed` as any)
+      );
+      addColor(
+        `on${role}fixedvariant`,
+        getHex(scheme, `on${cap}FixedVariant` as any)
+      );
     }
 
     // Semantic helpers
-    const semantics = { warning: SEMANTIC_COLORS.WARNING, success: SEMANTIC_COLORS.SUCCESS, info: SEMANTIC_COLORS.INFO };
+    const semantics = {
+      warning: SEMANTIC_COLORS.WARNING,
+      success: SEMANTIC_COLORS.SUCCESS,
+      info: SEMANTIC_COLORS.INFO,
+    };
     for (const [key, seed] of Object.entries(semantics)) {
       const palette = TonalPalette.fromInt(seed);
-      const tones = isDark ? { base: 80, on: 20, c: 30, onC: 90 } : { base: 40, on: 100, c: 90, onC: 10 };
+      const tones = isDark
+        ? { base: 80, on: 20, c: 30, onC: 90 }
+        : { base: 40, on: 100, c: 90, onC: 10 };
       addColor(key, hexFromArgb(palette.tone(tones.base)));
       addColor(`on${key}`, hexFromArgb(palette.tone(tones.on)));
-      addColor(`${key}container`, hexFromArgb(palette.tone(tones.c)));
-      addColor(`on${key}container`, hexFromArgb(palette.tone(tones.onC)));
+      addColor(
+        `${key}container`,
+        hexFromArgb(palette.tone(tones.c))
+      );
+      addColor(
+        `on${key}container`,
+        hexFromArgb(palette.tone(tones.onC))
+      );
     }
   }
 
   return result as ColorScheme;
 }
 
-export function generateCssCustomProperties(colorScheme: ColorScheme): string {
+export function generateCssCustomProperties(
+  colorScheme: ColorScheme
+): string {
   const vars = Object.entries(colorScheme)
     .map(([k, v]) => `  --${k}: ${v};`)
     .join("\n");
@@ -203,6 +277,20 @@ export function generateColorSchemeFromColors(
   variant: SchemeVariant = "vibrant",
   strategy: ColorStrategy = "complementary"
 ) {
-  const scheme = generateColorScheme(colors[0], colors[1], colors[2], colors[3], variant, strategy);
-  return { colorScheme: scheme, json: JSON.stringify(scheme, null, 2), css: generateCssCustomProperties(scheme) };
+  if (colors.length === 0 || colors.length > 4) {
+    throw new Error("Please provide 1-4 colors");
+  }
+  const scheme = generateColorScheme(
+    colors[0],
+    colors[1],
+    colors[2],
+    colors[3],
+    variant,
+    strategy
+  );
+  return {
+    colorScheme: scheme,
+    json: JSON.stringify(scheme, null, 2),
+    css: generateCssCustomProperties(scheme),
+  };
 }
