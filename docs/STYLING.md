@@ -138,3 +138,34 @@ The dynamic system used in HeavyLift leverages Material 3's algorithm to generat
 - All spacing scales with user font size preferences (rem-based)
 - WCAG compliant color combinations via the [Color Scheme Generator](./COLOR_SCHEME_GENERATOR.md)
 - Adequate spacing between interactive elements on mobile (minimum space-md)
+
+---
+
+## Theme Switching (CSS-Only)
+
+HeavyLift supports seamless theme switching using only CSS. This works by detecting both system preferences and an optional manual toggle.
+
+### 1. Automatic Switching
+By default, HeavyLift respects the user's system preference (`prefers-color-scheme`). No extra configuration is required.
+
+### 2. Manual Toggle
+To provide a manual theme switch without JavaScript, add a checkbox with the ID `theme-manual-toggle` to your page (typically near the top).
+
+```html
+<!-- Hidden checkbox for state tracking -->
+<input type="checkbox" id="theme-manual-toggle" class="hidden">
+
+<!-- Label acting as the toggle button -->
+<label for="theme-manual-toggle" class="button outlined">
+  <span class="light-only">Switch to Dark Mode</span>
+  <span class="dark-only">Switch to Light Mode</span>
+</label>
+```
+
+### 3. Visibility Utilities
+Use these classes to show or hide content based on the active theme:
+
+- `.light-only`: Visible only when light mode is active.
+- `.dark-only`: Visible only when dark mode is active.
+
+These utilities automatically respond to both the user's system preference and the state of the `#theme-manual-toggle` checkbox.

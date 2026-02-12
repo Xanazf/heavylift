@@ -85,6 +85,51 @@
   --animate-bounce: bounce 1s infinite;
 }
 
+/* Theme Visibility Utilities */
+.dark-only,
+.light-only {
+  display: none !important;
+}
+
+/* Default state: Light mode active or no system preference */
+:root {
+  .light-only {
+    display: initial !important;
+  }
+}
+
+/* Dark mode state: System preference or manual toggle checked */
+@media (prefers-color-scheme: dark) {
+  :root:not(:has(#theme-manual-toggle:not(:checked))) {
+    .dark-only {
+      display: initial !important;
+    }
+    .light-only {
+      display: none !important;
+    }
+  }
+}
+
+/* Forced Dark mode via toggle */
+html:has(#theme-manual-toggle:checked) {
+  .dark-only {
+    display: initial !important;
+  }
+  .light-only {
+    display: none !important;
+  }
+}
+
+/* Forced Light mode via toggle overriding system dark mode */
+html:has(#theme-manual-toggle:not(:checked)) {
+  .dark-only {
+    display: none !important;
+  }
+  .light-only {
+    display: initial !important;
+  }
+}
+
 @keyframes fade-in {
   0% {
     opacity: 0;
