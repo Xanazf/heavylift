@@ -1,52 +1,50 @@
-@layer utilities {
-  /* Canonical display utilities */
-  :where(.display-block),
-  :where(.block) {
-    display: block;
-  }
-  :where(.display-inline-block),
-  :where(.inline-block) {
-    display: inline-block;
-  }
-  :where(.display-inline),
-  :where(.inline) {
-    display: inline;
-  }
-  :where(.display-none),
-  :where(.hidden) {
-    display: none;
-  }
-  :where(.display-flex),
-  :where(.flex) {
-    display: flex;
-  }
-  :where(.display-grid),
-  :where(.grid) {
-    display: grid;
-  }
+/* Canonical display utilities */
+:where(.display-block),
+:where(.block) {
+  display: block;
+}
+:where(.display-inline-block),
+:where(.inline-block) {
+  display: inline-block;
+}
+:where(.display-inline),
+:where(.inline) {
+  display: inline;
+}
+:where(.display-none),
+:where(.hidden) {
+  display: none;
+}
+:where(.display-flex),
+:where(.flex) {
+  display: flex;
+}
+:where(.display-grid),
+:where(.grid) {
+  display: grid;
+}
 
-  /* Axis helpers */
-  :where(.flex-h) {
-    display: flex;
-  }
-  :where(.flex-v) {
-    display: flex;
-    flex-direction: column;
-  }
+/* Axis helpers */
+:where(.flex-h) {
+  display: flex;
+}
+:where(.flex-v) {
+  display: flex;
+  flex-direction: column;
+}
 
-  /* Back-compat aliases */
-  :where(.display__block) {
-    display: block;
-  }
-  :where(.display__inlineBlock) {
-    display: inline-block;
-  }
-  :where(.display__flex-v),
-  :where(.display-flex-v) {
-    display: flex;
-    flex-direction: column;
-  }
-  :where(.display__grid) {
-    display: grid;
-  }
+/* Back-compat aliases */
+:where(.display__block) {
+  display: block;
+}
+:where(.display__inlineBlock) {
+  display: inline-block;
+}
+:where(.display__flex-v),
+:where(.display-flex-v) {
+  display: flex;
+  flex-direction: column;
+}
+:where(.display__grid) {
+  display: grid;
 }

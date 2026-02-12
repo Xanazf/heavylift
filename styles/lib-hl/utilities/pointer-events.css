@@ -1,5 +1,6 @@
-@layer utilities {
-  :where(.pointer-events-none) {
-    pointer-events: none;
-  }
+:where(.pointer-events-none) {
+  pointer-events: none;
+}
+:where(.pointer-events-auto) {
+  pointer-events: auto;
 }

@@ -1,652 +1,650 @@
 /* Responsive Utilities (Optimized) */
 /* Maps Tailwind-like responsive prefixes (sm:, md:, lg:) to HeavyLift variables */
 
-@layer utilities {
-  /* ========================================================================
-     Small Breakpoint (>= 40rem / 640px)
-     ======================================================================== */
-  @media (min-width: 40rem) {
-    /* --- Display --- */
-    :where(.sm\:block) {
-      display: block;
-    }
-    :where(.sm\:inline-block) {
-      display: inline-block;
-    }
-    :where(.sm\:inline) {
-      display: inline;
-    }
-    :where(.sm\:flex) {
-      display: flex;
-    }
-    :where(.sm\:grid) {
-      display: grid;
-    }
-    :where(.sm\:hidden) {
-      display: none;
-    }
-
-    /* --- Flexbox --- */
-    :where(.sm\:flex-row) {
-      flex-direction: row;
-    }
-    :where(.sm\:flex-col) {
-      flex-direction: column;
-    }
-    :where(.sm\:flex-wrap) {
-      flex-wrap: wrap;
-    }
-    :where(.sm\:flex-nowrap) {
-      flex-wrap: nowrap;
-    }
-    :where(.sm\:items-start) {
-      align-items: flex-start;
-    }
-    :where(.sm\:items-center) {
-      align-items: center;
-    }
-    :where(.sm\:items-end) {
-      align-items: flex-end;
-    }
-    :where(.sm\:justify-start) {
-      justify-content: flex-start;
-    }
-    :where(.sm\:justify-center) {
-      justify-content: center;
-    }
-    :where(.sm\:justify-end) {
-      justify-content: flex-end;
-    }
-    :where(.sm\:justify-between) {
-      justify-content: space-between;
-    }
-
-    /* --- Grid Cols --- */
-    :where(.sm\:grid-cols-1) {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-    :where(.sm\:grid-cols-2) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    :where(.sm\:grid-cols-3) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-    :where(.sm\:grid-cols-4) {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-    :where(.sm\:grid-cols-6) {
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-    }
-    :where(.sm\:grid-cols-12) {
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-    }
-
-    /* --- Spacing (Gap) --- */
-    :where(.sm\:gap-xs) {
-      gap: var(--xs);
-    }
-    :where(.sm\:gap-sm) {
-      gap: var(--sm);
-    }
-    :where(.sm\:gap-md) {
-      gap: var(--md);
-    }
-    :where(.sm\:gap-lg) {
-      gap: var(--lg);
-    }
-    :where(.sm\:gap-xl) {
-      gap: var(--xl);
-    }
-    :where(.sm\:gap-2xl) {
-      gap: var(--2xl);
-    }
-
-    /* --- Spacing (Margin) --- */
-    :where(.sm\:m-0) {
-      margin: 0;
-    }
-    :where(.sm\:m-xs) {
-      margin: var(--xs);
-    }
-    :where(.sm\:m-sm) {
-      margin: var(--sm);
-    }
-    :where(.sm\:m-md) {
-      margin: var(--md);
-    }
-    :where(.sm\:m-lg) {
-      margin: var(--lg);
-    }
-    :where(.sm\:m-xl) {
-      margin: var(--xl);
-    }
-
-    :where(.sm\:mx-0) {
-      margin-inline: 0;
-    }
-    :where(.sm\:mx-xs) {
-      margin-inline: var(--xs);
-    }
-    :where(.sm\:mx-sm) {
-      margin-inline: var(--sm);
-    }
-    :where(.sm\:mx-md) {
-      margin-inline: var(--md);
-    }
-    :where(.sm\:mx-lg) {
-      margin-inline: var(--lg);
-    }
-    :where(.sm\:mx-xl) {
-      margin-inline: var(--xl);
-    }
-
-    :where(.sm\:my-0) {
-      margin-block: 0;
-    }
-    :where(.sm\:my-xs) {
-      margin-block: var(--xs);
-    }
-    :where(.sm\:my-sm) {
-      margin-block: var(--sm);
-    }
-    :where(.sm\:my-md) {
-      margin-block: var(--md);
-    }
-    :where(.sm\:my-lg) {
-      margin-block: var(--lg);
-    }
-    :where(.sm\:my-xl) {
-      margin-block: var(--xl);
-    }
-
-    /* --- Spacing (Padding) --- */
-    :where(.sm\:p-0) {
-      padding: 0;
-    }
-    :where(.sm\:p-xs) {
-      padding: var(--xs);
-    }
-    :where(.sm\:p-sm) {
-      padding: var(--sm);
-    }
-    :where(.sm\:p-md) {
-      padding: var(--md);
-    }
-    :where(.sm\:p-lg) {
-      padding: var(--lg);
-    }
-    :where(.sm\:p-xl) {
-      padding: var(--xl);
-    }
-
-    :where(.sm\:px-0) {
-      padding-inline: 0;
-    }
-    :where(.sm\:px-xs) {
-      padding-inline: var(--xs);
-    }
-    :where(.sm\:px-sm) {
-      padding-inline: var(--sm);
-    }
-    :where(.sm\:px-md) {
-      padding-inline: var(--md);
-    }
-    :where(.sm\:px-lg) {
-      padding-inline: var(--lg);
-    }
-    :where(.sm\:px-xl) {
-      padding-inline: var(--xl);
-    }
-
-    :where(.sm\:py-0) {
-      padding-block: 0;
-    }
-    :where(.sm\:py-xs) {
-      padding-block: var(--xs);
-    }
-    :where(.sm\:py-sm) {
-      padding-block: var(--sm);
-    }
-    :where(.sm\:py-md) {
-      padding-block: var(--md);
-    }
-    :where(.sm\:py-lg) {
-      padding-block: var(--lg);
-    }
-    :where(.sm\:py-xl) {
-      padding-block: var(--xl);
-    }
+/* ========================================================================
+   Small Breakpoint (>= 40rem / 640px)
+   ======================================================================== */
+@media (min-width: 40rem) {
+  /* --- Display --- */
+  :where(.sm\:block) {
+    display: block;
+  }
+  :where(.sm\:inline-block) {
+    display: inline-block;
+  }
+  :where(.sm\:inline) {
+    display: inline;
+  }
+  :where(.sm\:flex) {
+    display: flex;
+  }
+  :where(.sm\:grid) {
+    display: grid;
+  }
+  :where(.sm\:hidden) {
+    display: none;
   }
 
-  /* ========================================================================
-     Medium Breakpoint (>= 48rem / 768px)
-     ======================================================================== */
-  @media (min-width: 48rem) {
-    /* --- Display --- */
-    :where(.md\:block) {
-      display: block;
-    }
-    :where(.md\:inline-block) {
-      display: inline-block;
-    }
-    :where(.md\:inline) {
-      display: inline;
-    }
-    :where(.md\:flex) {
-      display: flex;
-    }
-    :where(.md\:grid) {
-      display: grid;
-    }
-    :where(.md\:hidden) {
-      display: none;
-    }
-
-    /* --- Flexbox --- */
-    :where(.md\:flex-row) {
-      flex-direction: row;
-    }
-    :where(.md\:flex-col) {
-      flex-direction: column;
-    }
-    :where(.md\:flex-wrap) {
-      flex-wrap: wrap;
-    }
-    :where(.md\:flex-nowrap) {
-      flex-wrap: nowrap;
-    }
-    :where(.md\:items-start) {
-      align-items: flex-start;
-    }
-    :where(.md\:items-center) {
-      align-items: center;
-    }
-    :where(.md\:items-end) {
-      align-items: flex-end;
-    }
-    :where(.md\:justify-start) {
-      justify-content: flex-start;
-    }
-    :where(.md\:justify-center) {
-      justify-content: center;
-    }
-    :where(.md\:justify-end) {
-      justify-content: flex-end;
-    }
-    :where(.md\:justify-between) {
-      justify-content: space-between;
-    }
-
-    /* --- Grid Cols --- */
-    :where(.md\:grid-cols-1) {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-    :where(.md\:grid-cols-2) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    :where(.md\:grid-cols-3) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-    :where(.md\:grid-cols-4) {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-    :where(.md\:grid-cols-6) {
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-    }
-    :where(.md\:grid-cols-12) {
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-    }
-
-    /* --- Spacing (Gap) --- */
-    :where(.md\:gap-xs) {
-      gap: var(--xs);
-    }
-    :where(.md\:gap-sm) {
-      gap: var(--sm);
-    }
-    :where(.md\:gap-md) {
-      gap: var(--md);
-    }
-    :where(.md\:gap-lg) {
-      gap: var(--lg);
-    }
-    :where(.md\:gap-xl) {
-      gap: var(--xl);
-    }
-    :where(.md\:gap-2xl) {
-      gap: var(--2xl);
-    }
-
-    /* --- Spacing (Margin) --- */
-    :where(.md\:m-0) {
-      margin: 0;
-    }
-    :where(.md\:m-xs) {
-      margin: var(--xs);
-    }
-    :where(.md\:m-sm) {
-      margin: var(--sm);
-    }
-    :where(.md\:m-md) {
-      margin: var(--md);
-    }
-    :where(.md\:m-lg) {
-      margin: var(--lg);
-    }
-    :where(.md\:m-xl) {
-      margin: var(--xl);
-    }
-
-    :where(.md\:mx-0) {
-      margin-inline: 0;
-    }
-    :where(.md\:mx-xs) {
-      margin-inline: var(--xs);
-    }
-    :where(.md\:mx-sm) {
-      margin-inline: var(--sm);
-    }
-    :where(.md\:mx-md) {
-      margin-inline: var(--md);
-    }
-    :where(.md\:mx-lg) {
-      margin-inline: var(--lg);
-    }
-    :where(.md\:mx-xl) {
-      margin-inline: var(--xl);
-    }
-
-    :where(.md\:my-0) {
-      margin-block: 0;
-    }
-    :where(.md\:my-xs) {
-      margin-block: var(--xs);
-    }
-    :where(.md\:my-sm) {
-      margin-block: var(--sm);
-    }
-    :where(.md\:my-md) {
-      margin-block: var(--md);
-    }
-    :where(.md\:my-lg) {
-      margin-block: var(--lg);
-    }
-    :where(.md\:my-xl) {
-      margin-block: var(--xl);
-    }
-
-    /* --- Spacing (Padding) --- */
-    :where(.md\:p-0) {
-      padding: 0;
-    }
-    :where(.md\:p-xs) {
-      padding: var(--xs);
-    }
-    :where(.md\:p-sm) {
-      padding: var(--sm);
-    }
-    :where(.md\:p-md) {
-      padding: var(--md);
-    }
-    :where(.md\:p-lg) {
-      padding: var(--lg);
-    }
-    :where(.md\:p-xl) {
-      padding: var(--xl);
-    }
-
-    :where(.md\:px-0) {
-      padding-inline: 0;
-    }
-    :where(.md\:px-xs) {
-      padding-inline: var(--xs);
-    }
-    :where(.md\:px-sm) {
-      padding-inline: var(--sm);
-    }
-    :where(.md\:px-md) {
-      padding-inline: var(--md);
-    }
-    :where(.md\:px-lg) {
-      padding-inline: var(--lg);
-    }
-    :where(.md\:px-xl) {
-      padding-inline: var(--xl);
-    }
-
-    :where(.md\:py-0) {
-      padding-block: 0;
-    }
-    :where(.md\:py-xs) {
-      padding-block: var(--xs);
-    }
-    :where(.md\:py-sm) {
-      padding-block: var(--sm);
-    }
-    :where(.md\:py-md) {
-      padding-block: var(--md);
-    }
-    :where(.md\:py-lg) {
-      padding-block: var(--lg);
-    }
-    :where(.md\:py-xl) {
-      padding-block: var(--xl);
-    }
+  /* --- Flexbox --- */
+  :where(.sm\:flex-row) {
+    flex-direction: row;
+  }
+  :where(.sm\:flex-col) {
+    flex-direction: column;
+  }
+  :where(.sm\:flex-wrap) {
+    flex-wrap: wrap;
+  }
+  :where(.sm\:flex-nowrap) {
+    flex-wrap: nowrap;
+  }
+  :where(.sm\:items-start) {
+    align-items: flex-start;
+  }
+  :where(.sm\:items-center) {
+    align-items: center;
+  }
+  :where(.sm\:items-end) {
+    align-items: flex-end;
+  }
+  :where(.sm\:justify-start) {
+    justify-content: flex-start;
+  }
+  :where(.sm\:justify-center) {
+    justify-content: center;
+  }
+  :where(.sm\:justify-end) {
+    justify-content: flex-end;
+  }
+  :where(.sm\:justify-between) {
+    justify-content: space-between;
   }
 
-  /* ========================================================================
-     Large Breakpoint (>= 64rem / 1024px)
-     ======================================================================== */
-  @media (min-width: 64rem) {
-    /* --- Display --- */
-    :where(.lg\:block) {
-      display: block;
-    }
-    :where(.lg\:inline-block) {
-      display: inline-block;
-    }
-    :where(.lg\:inline) {
-      display: inline;
-    }
-    :where(.lg\:flex) {
-      display: flex;
-    }
-    :where(.lg\:grid) {
-      display: grid;
-    }
-    :where(.lg\:hidden) {
-      display: none;
-    }
+  /* --- Grid Cols --- */
+  :where(.sm\:grid-cols-1) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  :where(.sm\:grid-cols-2) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  :where(.sm\:grid-cols-3) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  :where(.sm\:grid-cols-4) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  :where(.sm\:grid-cols-6) {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  :where(.sm\:grid-cols-12) {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
 
-    /* --- Flexbox --- */
-    :where(.lg\:flex-row) {
-      flex-direction: row;
-    }
-    :where(.lg\:flex-col) {
-      flex-direction: column;
-    }
-    :where(.lg\:flex-wrap) {
-      flex-wrap: wrap;
-    }
-    :where(.lg\:flex-nowrap) {
-      flex-wrap: nowrap;
-    }
-    :where(.lg\:items-start) {
-      align-items: flex-start;
-    }
-    :where(.lg\:items-center) {
-      align-items: center;
-    }
-    :where(.lg\:items-end) {
-      align-items: flex-end;
-    }
-    :where(.lg\:justify-start) {
-      justify-content: flex-start;
-    }
-    :where(.lg\:justify-center) {
-      justify-content: center;
-    }
-    :where(.lg\:justify-end) {
-      justify-content: flex-end;
-    }
-    :where(.lg\:justify-between) {
-      justify-content: space-between;
-    }
+  /* --- Spacing (Gap) --- */
+  :where(.sm\:gap-xs) {
+    gap: var(--xs);
+  }
+  :where(.sm\:gap-sm) {
+    gap: var(--sm);
+  }
+  :where(.sm\:gap-md) {
+    gap: var(--md);
+  }
+  :where(.sm\:gap-lg) {
+    gap: var(--lg);
+  }
+  :where(.sm\:gap-xl) {
+    gap: var(--xl);
+  }
+  :where(.sm\:gap-2xl) {
+    gap: var(--2xl);
+  }
 
-    /* --- Grid Cols --- */
-    :where(.lg\:grid-cols-1) {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-    :where(.lg\:grid-cols-2) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    :where(.lg\:grid-cols-3) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-    :where(.lg\:grid-cols-4) {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-    :where(.lg\:grid-cols-6) {
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-    }
-    :where(.lg\:grid-cols-12) {
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-    }
+  /* --- Spacing (Margin) --- */
+  :where(.sm\:m-0) {
+    margin: 0;
+  }
+  :where(.sm\:m-xs) {
+    margin: var(--xs);
+  }
+  :where(.sm\:m-sm) {
+    margin: var(--sm);
+  }
+  :where(.sm\:m-md) {
+    margin: var(--md);
+  }
+  :where(.sm\:m-lg) {
+    margin: var(--lg);
+  }
+  :where(.sm\:m-xl) {
+    margin: var(--xl);
+  }
 
-    /* --- Spacing (Gap) --- */
-    :where(.lg\:gap-xs) {
-      gap: var(--xs);
-    }
-    :where(.lg\:gap-sm) {
-      gap: var(--sm);
-    }
-    :where(.lg\:gap-md) {
-      gap: var(--md);
-    }
-    :where(.lg\:gap-lg) {
-      gap: var(--lg);
-    }
-    :where(.lg\:gap-xl) {
-      gap: var(--xl);
-    }
-    :where(.lg\:gap-2xl) {
-      gap: var(--2xl);
-    }
+  :where(.sm\:mx-0) {
+    margin-inline: 0;
+  }
+  :where(.sm\:mx-xs) {
+    margin-inline: var(--xs);
+  }
+  :where(.sm\:mx-sm) {
+    margin-inline: var(--sm);
+  }
+  :where(.sm\:mx-md) {
+    margin-inline: var(--md);
+  }
+  :where(.sm\:mx-lg) {
+    margin-inline: var(--lg);
+  }
+  :where(.sm\:mx-xl) {
+    margin-inline: var(--xl);
+  }
 
-    /* --- Spacing (Margin) --- */
-    :where(.lg\:m-0) {
-      margin: 0;
-    }
-    :where(.lg\:m-xs) {
-      margin: var(--xs);
-    }
-    :where(.lg\:m-sm) {
-      margin: var(--sm);
-    }
-    :where(.lg\:m-md) {
-      margin: var(--md);
-    }
-    :where(.lg\:m-lg) {
-      margin: var(--lg);
-    }
-    :where(.lg\:m-xl) {
-      margin: var(--xl);
-    }
+  :where(.sm\:my-0) {
+    margin-block: 0;
+  }
+  :where(.sm\:my-xs) {
+    margin-block: var(--xs);
+  }
+  :where(.sm\:my-sm) {
+    margin-block: var(--sm);
+  }
+  :where(.sm\:my-md) {
+    margin-block: var(--md);
+  }
+  :where(.sm\:my-lg) {
+    margin-block: var(--lg);
+  }
+  :where(.sm\:my-xl) {
+    margin-block: var(--xl);
+  }
 
-    :where(.lg\:mx-0) {
-      margin-inline: 0;
-    }
-    :where(.lg\:mx-xs) {
-      margin-inline: var(--xs);
-    }
-    :where(.lg\:mx-sm) {
-      margin-inline: var(--sm);
-    }
-    :where(.lg\:mx-md) {
-      margin-inline: var(--md);
-    }
-    :where(.lg\:mx-lg) {
-      margin-inline: var(--lg);
-    }
-    :where(.lg\:mx-xl) {
-      margin-inline: var(--xl);
-    }
+  /* --- Spacing (Padding) --- */
+  :where(.sm\:p-0) {
+    padding: 0;
+  }
+  :where(.sm\:p-xs) {
+    padding: var(--xs);
+  }
+  :where(.sm\:p-sm) {
+    padding: var(--sm);
+  }
+  :where(.sm\:p-md) {
+    padding: var(--md);
+  }
+  :where(.sm\:p-lg) {
+    padding: var(--lg);
+  }
+  :where(.sm\:p-xl) {
+    padding: var(--xl);
+  }
 
-    :where(.lg\:my-0) {
-      margin-block: 0;
-    }
-    :where(.lg\:my-xs) {
-      margin-block: var(--xs);
-    }
-    :where(.lg\:my-sm) {
-      margin-block: var(--sm);
-    }
-    :where(.lg\:my-md) {
-      margin-block: var(--md);
-    }
-    :where(.lg\:my-lg) {
-      margin-block: var(--lg);
-    }
-    :where(.lg\:my-xl) {
-      margin-block: var(--xl);
-    }
+  :where(.sm\:px-0) {
+    padding-inline: 0;
+  }
+  :where(.sm\:px-xs) {
+    padding-inline: var(--xs);
+  }
+  :where(.sm\:px-sm) {
+    padding-inline: var(--sm);
+  }
+  :where(.sm\:px-md) {
+    padding-inline: var(--md);
+  }
+  :where(.sm\:px-lg) {
+    padding-inline: var(--lg);
+  }
+  :where(.sm\:px-xl) {
+    padding-inline: var(--xl);
+  }
 
-    /* --- Spacing (Padding) --- */
-    :where(.lg\:p-0) {
-      padding: 0;
-    }
-    :where(.lg\:p-xs) {
-      padding: var(--xs);
-    }
-    :where(.lg\:p-sm) {
-      padding: var(--sm);
-    }
-    :where(.lg\:p-md) {
-      padding: var(--md);
-    }
-    :where(.lg\:p-lg) {
-      padding: var(--lg);
-    }
-    :where(.lg\:p-xl) {
-      padding: var(--xl);
-    }
+  :where(.sm\:py-0) {
+    padding-block: 0;
+  }
+  :where(.sm\:py-xs) {
+    padding-block: var(--xs);
+  }
+  :where(.sm\:py-sm) {
+    padding-block: var(--sm);
+  }
+  :where(.sm\:py-md) {
+    padding-block: var(--md);
+  }
+  :where(.sm\:py-lg) {
+    padding-block: var(--lg);
+  }
+  :where(.sm\:py-xl) {
+    padding-block: var(--xl);
+  }
+}
 
-    :where(.lg\:px-0) {
-      padding-inline: 0;
-    }
-    :where(.lg\:px-xs) {
-      padding-inline: var(--xs);
-    }
-    :where(.lg\:px-sm) {
-      padding-inline: var(--sm);
-    }
-    :where(.lg\:px-md) {
-      padding-inline: var(--md);
-    }
-    :where(.lg\:px-lg) {
-      padding-inline: var(--lg);
-    }
-    :where(.lg\:px-xl) {
-      padding-inline: var(--xl);
-    }
+/* ========================================================================
+   Medium Breakpoint (>= 48rem / 768px)
+   ======================================================================== */
+@media (min-width: 48rem) {
+  /* --- Display --- */
+  :where(.md\:block) {
+    display: block;
+  }
+  :where(.md\:inline-block) {
+    display: inline-block;
+  }
+  :where(.md\:inline) {
+    display: inline;
+  }
+  :where(.md\:flex) {
+    display: flex;
+  }
+  :where(.md\:grid) {
+    display: grid;
+  }
+  :where(.md\:hidden) {
+    display: none;
+  }
 
-    :where(.lg\:py-0) {
-      padding-block: 0;
-    }
-    :where(.lg\:py-xs) {
-      padding-block: var(--xs);
-    }
-    :where(.lg\:py-sm) {
-      padding-block: var(--sm);
-    }
-    :where(.lg\:py-md) {
-      padding-block: var(--md);
-    }
-    :where(.lg\:py-lg) {
-      padding-block: var(--lg);
-    }
-    :where(.lg\:py-xl) {
-      padding-block: var(--xl);
-    }
+  /* --- Flexbox --- */
+  :where(.md\:flex-row) {
+    flex-direction: row;
+  }
+  :where(.md\:flex-col) {
+    flex-direction: column;
+  }
+  :where(.md\:flex-wrap) {
+    flex-wrap: wrap;
+  }
+  :where(.md\:flex-nowrap) {
+    flex-wrap: nowrap;
+  }
+  :where(.md\:items-start) {
+    align-items: flex-start;
+  }
+  :where(.md\:items-center) {
+    align-items: center;
+  }
+  :where(.md\:items-end) {
+    align-items: flex-end;
+  }
+  :where(.md\:justify-start) {
+    justify-content: flex-start;
+  }
+  :where(.md\:justify-center) {
+    justify-content: center;
+  }
+  :where(.md\:justify-end) {
+    justify-content: flex-end;
+  }
+  :where(.md\:justify-between) {
+    justify-content: space-between;
+  }
+
+  /* --- Grid Cols --- */
+  :where(.md\:grid-cols-1) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  :where(.md\:grid-cols-2) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  :where(.md\:grid-cols-3) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  :where(.md\:grid-cols-4) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  :where(.md\:grid-cols-6) {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  :where(.md\:grid-cols-12) {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  /* --- Spacing (Gap) --- */
+  :where(.md\:gap-xs) {
+    gap: var(--xs);
+  }
+  :where(.md\:gap-sm) {
+    gap: var(--sm);
+  }
+  :where(.md\:gap-md) {
+    gap: var(--md);
+  }
+  :where(.md\:gap-lg) {
+    gap: var(--lg);
+  }
+  :where(.md\:gap-xl) {
+    gap: var(--xl);
+  }
+  :where(.md\:gap-2xl) {
+    gap: var(--2xl);
+  }
+
+  /* --- Spacing (Margin) --- */
+  :where(.md\:m-0) {
+    margin: 0;
+  }
+  :where(.md\:m-xs) {
+    margin: var(--xs);
+  }
+  :where(.md\:m-sm) {
+    margin: var(--sm);
+  }
+  :where(.md\:m-md) {
+    margin: var(--md);
+  }
+  :where(.md\:m-lg) {
+    margin: var(--lg);
+  }
+  :where(.md\:m-xl) {
+    margin: var(--xl);
+  }
+
+  :where(.md\:mx-0) {
+    margin-inline: 0;
+  }
+  :where(.md\:mx-xs) {
+    margin-inline: var(--xs);
+  }
+  :where(.md\:mx-sm) {
+    margin-inline: var(--sm);
+  }
+  :where(.md\:mx-md) {
+    margin-inline: var(--md);
+  }
+  :where(.md\:mx-lg) {
+    margin-inline: var(--lg);
+  }
+  :where(.md\:mx-xl) {
+    margin-inline: var(--xl);
+  }
+
+  :where(.md\:my-0) {
+    margin-block: 0;
+  }
+  :where(.md\:my-xs) {
+    margin-block: var(--xs);
+  }
+  :where(.md\:my-sm) {
+    margin-block: var(--sm);
+  }
+  :where(.md\:my-md) {
+    margin-block: var(--md);
+  }
+  :where(.md\:my-lg) {
+    margin-block: var(--lg);
+  }
+  :where(.md\:my-xl) {
+    margin-block: var(--xl);
+  }
+
+  /* --- Spacing (Padding) --- */
+  :where(.md\:p-0) {
+    padding: 0;
+  }
+  :where(.md\:p-xs) {
+    padding: var(--xs);
+  }
+  :where(.md\:p-sm) {
+    padding: var(--sm);
+  }
+  :where(.md\:p-md) {
+    padding: var(--md);
+  }
+  :where(.md\:p-lg) {
+    padding: var(--lg);
+  }
+  :where(.md\:p-xl) {
+    padding: var(--xl);
+  }
+
+  :where(.md\:px-0) {
+    padding-inline: 0;
+  }
+  :where(.md\:px-xs) {
+    padding-inline: var(--xs);
+  }
+  :where(.md\:px-sm) {
+    padding-inline: var(--sm);
+  }
+  :where(.md\:px-md) {
+    padding-inline: var(--md);
+  }
+  :where(.md\:px-lg) {
+    padding-inline: var(--lg);
+  }
+  :where(.md\:px-xl) {
+    padding-inline: var(--xl);
+  }
+
+  :where(.md\:py-0) {
+    padding-block: 0;
+  }
+  :where(.md\:py-xs) {
+    padding-block: var(--xs);
+  }
+  :where(.md\:py-sm) {
+    padding-block: var(--sm);
+  }
+  :where(.md\:py-md) {
+    padding-block: var(--md);
+  }
+  :where(.md\:py-lg) {
+    padding-block: var(--lg);
+  }
+  :where(.md\:py-xl) {
+    padding-block: var(--xl);
+  }
+}
+
+/* ========================================================================
+   Large Breakpoint (>= 64rem / 1024px)
+   ======================================================================== */
+@media (min-width: 64rem) {
+  /* --- Display --- */
+  :where(.lg\:block) {
+    display: block;
+  }
+  :where(.lg\:inline-block) {
+    display: inline-block;
+  }
+  :where(.lg\:inline) {
+    display: inline;
+  }
+  :where(.lg\:flex) {
+    display: flex;
+  }
+  :where(.lg\:grid) {
+    display: grid;
+  }
+  :where(.lg\:hidden) {
+    display: none;
+  }
+
+  /* --- Flexbox --- */
+  :where(.lg\:flex-row) {
+    flex-direction: row;
+  }
+  :where(.lg\:flex-col) {
+    flex-direction: column;
+  }
+  :where(.lg\:flex-wrap) {
+    flex-wrap: wrap;
+  }
+  :where(.lg\:flex-nowrap) {
+    flex-wrap: nowrap;
+  }
+  :where(.lg\:items-start) {
+    align-items: flex-start;
+  }
+  :where(.lg\:items-center) {
+    align-items: center;
+  }
+  :where(.lg\:items-end) {
+    align-items: flex-end;
+  }
+  :where(.lg\:justify-start) {
+    justify-content: flex-start;
+  }
+  :where(.lg\:justify-center) {
+    justify-content: center;
+  }
+  :where(.lg\:justify-end) {
+    justify-content: flex-end;
+  }
+  :where(.lg\:justify-between) {
+    justify-content: space-between;
+  }
+
+  /* --- Grid Cols --- */
+  :where(.lg\:grid-cols-1) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  :where(.lg\:grid-cols-2) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  :where(.lg\:grid-cols-3) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  :where(.lg\:grid-cols-4) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  :where(.lg\:grid-cols-6) {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  :where(.lg\:grid-cols-12) {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  /* --- Spacing (Gap) --- */
+  :where(.lg\:gap-xs) {
+    gap: var(--xs);
+  }
+  :where(.lg\:gap-sm) {
+    gap: var(--sm);
+  }
+  :where(.lg\:gap-md) {
+    gap: var(--md);
+  }
+  :where(.lg\:gap-lg) {
+    gap: var(--lg);
+  }
+  :where(.lg\:gap-xl) {
+    gap: var(--xl);
+  }
+  :where(.lg\:gap-2xl) {
+    gap: var(--2xl);
+  }
+
+  /* --- Spacing (Margin) --- */
+  :where(.lg\:m-0) {
+    margin: 0;
+  }
+  :where(.lg\:m-xs) {
+    margin: var(--xs);
+  }
+  :where(.lg\:m-sm) {
+    margin: var(--sm);
+  }
+  :where(.lg\:m-md) {
+    margin: var(--md);
+  }
+  :where(.lg\:m-lg) {
+    margin: var(--lg);
+  }
+  :where(.lg\:m-xl) {
+    margin: var(--xl);
+  }
+
+  :where(.lg\:mx-0) {
+    margin-inline: 0;
+  }
+  :where(.lg\:mx-xs) {
+    margin-inline: var(--xs);
+  }
+  :where(.lg\:mx-sm) {
+    margin-inline: var(--sm);
+  }
+  :where(.lg\:mx-md) {
+    margin-inline: var(--md);
+  }
+  :where(.lg\:mx-lg) {
+    margin-inline: var(--lg);
+  }
+  :where(.lg\:mx-xl) {
+    margin-inline: var(--xl);
+  }
+
+  :where(.lg\:my-0) {
+    margin-block: 0;
+  }
+  :where(.lg\:my-xs) {
+    margin-block: var(--xs);
+  }
+  :where(.lg\:my-sm) {
+    margin-block: var(--sm);
+  }
+  :where(.lg\:my-md) {
+    margin-block: var(--md);
+  }
+  :where(.lg\:my-lg) {
+    margin-block: var(--lg);
+  }
+  :where(.lg\:my-xl) {
+    margin-block: var(--xl);
+  }
+
+  /* --- Spacing (Padding) --- */
+  :where(.lg\:p-0) {
+    padding: 0;
+  }
+  :where(.lg\:p-xs) {
+    padding: var(--xs);
+  }
+  :where(.lg\:p-sm) {
+    padding: var(--sm);
+  }
+  :where(.lg\:p-md) {
+    padding: var(--md);
+  }
+  :where(.lg\:p-lg) {
+    padding: var(--lg);
+  }
+  :where(.lg\:p-xl) {
+    padding: var(--xl);
+  }
+
+  :where(.lg\:px-0) {
+    padding-inline: 0;
+  }
+  :where(.lg\:px-xs) {
+    padding-inline: var(--xs);
+  }
+  :where(.lg\:px-sm) {
+    padding-inline: var(--sm);
+  }
+  :where(.lg\:px-md) {
+    padding-inline: var(--md);
+  }
+  :where(.lg\:px-lg) {
+    padding-inline: var(--lg);
+  }
+  :where(.lg\:px-xl) {
+    padding-inline: var(--xl);
+  }
+
+  :where(.lg\:py-0) {
+    padding-block: 0;
+  }
+  :where(.lg\:py-xs) {
+    padding-block: var(--xs);
+  }
+  :where(.lg\:py-sm) {
+    padding-block: var(--sm);
+  }
+  :where(.lg\:py-md) {
+    padding-block: var(--md);
+  }
+  :where(.lg\:py-lg) {
+    padding-block: var(--lg);
+  }
+  :where(.lg\:py-xl) {
+    padding-block: var(--xl);
   }
 }

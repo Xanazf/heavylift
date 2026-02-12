@@ -1,72 +1,80 @@
 /* Flexbox Utilities */
-@layer utilities {
-  :where(.flex-row) {
-    display: flex;
-    flex-direction: row;
-  }
+:where(.flex-row) {
+  display: flex;
+  flex-direction: row;
+}
 
-  :where(.flex-col) {
-    display: flex;
-    flex-direction: column;
-  }
+:where(.flex-row-reverse) {
+  display: flex;
+  flex-direction: row-reverse;
+}
 
-  :where(.flex-wrap) {
-    flex-wrap: wrap;
-  }
+:where(.flex-col) {
+  display: flex;
+  flex-direction: column;
+}
 
-  :where(.flex-nowrap) {
-    flex-wrap: nowrap;
-  }
+:where(.flex-col-reverse) {
+  display: flex;
+  flex-direction: column-reverse;
+}
 
-  :where(.flex-1) {
-    flex: 1 1 0%;
-  }
+:where(.flex-wrap) {
+  flex-wrap: wrap;
+}
 
-  :where(.flex-auto) {
-    flex: 1 1 auto;
-  }
+:where(.flex-nowrap) {
+  flex-wrap: nowrap;
+}
 
-  :where(.flex-none) {
-    flex: none;
-  }
+:where(.flex-1) {
+  flex: 1 1 0%;
+}
 
-  :where(.grow) {
-    flex-grow: 1;
-  }
+:where(.flex-auto) {
+  flex: 1 1 auto;
+}
 
-  :where(.grow-0) {
-    flex-grow: 0;
-  }
+:where(.flex-none) {
+  flex: none;
+}
 
-  :where(.shrink) {
-    flex-shrink: 1;
-  }
+:where(.grow) {
+  flex-grow: 1;
+}
 
-  :where(.shrink-0) {
-    flex-shrink: 0;
-  }
+:where(.grow-0) {
+  flex-grow: 0;
+}
 
-  /* Legacy HeavyLift aliases */
-  :where(.flex-h) {
-    display: flex;
-    flex-direction: row;
-  }
+:where(.shrink) {
+  flex-shrink: 1;
+}
 
-  :where(.flex-v) {
-    display: flex;
-    flex-direction: column;
-  }
+:where(.shrink-0) {
+  flex-shrink: 0;
+}
 
-  :where(.flex-h-center) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+/* Legacy HeavyLift aliases */
+:where(.flex-h) {
+  display: flex;
+  flex-direction: row;
+}
 
-  :where(.flex-v-center) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+:where(.flex-v) {
+  display: flex;
+  flex-direction: column;
+}
+
+:where(.flex-h-center) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:where(.flex-v-center) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

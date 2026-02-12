@@ -5,7 +5,8 @@ Either width or height must be set to auto in order for aspect-ratio to work.
 Template: aspect-ratio: width / height;
 */
 
-.aspect-16x9 {
+.aspect-16x9,
+.aspect-video {
   aspect-ratio: 16 / 9;
 }
 
@@ -21,7 +22,8 @@ Template: aspect-ratio: width / height;
   aspect-ratio: 9 / 16;
 }
 
-.aspect-1x1 {
+.aspect-1x1,
+.aspect-square {
   aspect-ratio: 1;
 }
 

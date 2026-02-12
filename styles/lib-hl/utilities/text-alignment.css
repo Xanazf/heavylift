@@ -1,25 +1,25 @@
-@layer utilities {
-  :where(.text-left) {
-    text-align: left;
-  }
-  :where(.text-center) {
-    text-align: center;
-  }
-  :where(.text-right) {
-    text-align: right;
-  }
-  :where(.text-justify) {
-    text-align: justify;
-  }
+:where(.text-left),
+:where(.text-start) {
+  text-align: left;
+}
+:where(.text-center) {
+  text-align: center;
+}
+:where(.text-right),
+:where(.text-end) {
+  text-align: right;
+}
+:where(.text-justify) {
+  text-align: justify;
+}
 
-  /* Legacy aliases */
-  :where(.text-align-left) {
-    text-align: left;
-  }
-  :where(.text-align-center) {
-    text-align: center;
-  }
-  :where(.text-align-right) {
-    text-align: right;
-  }
+/* Legacy aliases */
+:where(.text-align-left) {
+  text-align: left;
+}
+:where(.text-align-center) {
+  text-align: center;
+}
+:where(.text-align-right) {
+  text-align: right;
 }

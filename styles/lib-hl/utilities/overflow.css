@@ -1,24 +1,23 @@
-@layer utilities {
-  :where(.overflow-hidden) {
-    overflow: hidden;
-  }
-  :where(.overflow-visible) {
-    overflow: visible;
-  }
-  :where(.overflow-scroll) {
-    overflow: scroll;
-  }
-  :where(.overflow-auto) {
-    overflow: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--hl-outline) transparent;
-  }
-  :where(.overflow-y-scroll) {
-    overflow-y: scroll;
-    scrollbar-width: none;
-  }
-  :where(.text-overflow-ellipsis) {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
+.overflow-hidden {
+  overflow: hidden;
+}
+.overflow-visible {
+  overflow: visible;
+}
+.overflow-scroll {
+  overflow: scroll;
+}
+.overflow-auto {
+  scrollbar-width: thin;
+  scrollbar-color: var(--hl-outline) transparent;
+  overflow: auto;
+}
+.overflow-y-scroll {
+  scrollbar-width: none;
+  overflow-y: scroll;
+}
+
+.text-overflow-ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

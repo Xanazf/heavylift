@@ -1,18 +1,16 @@
-@layer utilities {
-  /* Item Alignment */
-  :where(.items-stretch) {
-    align-items: stretch;
-  }
-  :where(.items-center) {
-    align-items: center;
-  }
-  :where(.items-top) {
-    align-items: flex-start;
-  }
-  :where(.items-start) {
-    align-items: flex-start;
-  }
-  :where(.items-baseline) {
-    align-items: baseline;
-  }
+/* Item Alignment */
+:where(.items-stretch) {
+  align-items: stretch;
+}
+:where(.items-center) {
+  align-items: center;
+}
+:where(.items-top) {
+  align-items: flex-start;
+}
+:where(.items-start) {
+  align-items: flex-start;
+}
+:where(.items-baseline) {
+  align-items: baseline;
 }

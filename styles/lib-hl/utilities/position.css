@@ -1,29 +1,39 @@
-@layer utilities {
-  :where(.static) {
-    position: static;
-  }
-  :where(.relative) {
-    position: relative;
-  }
-  :where(.absolute) {
-    position: absolute;
-  }
-  :where(.fixed) {
-    position: fixed;
-  }
-  :where(.sticky) {
-    position: sticky;
-  }
+:where(.static) {
+  position: static;
+}
+:where(.relative) {
+  position: relative;
+}
+:where(.absolute) {
+  position: absolute;
+}
+:where(.fixed) {
+  position: fixed;
+}
+:where(.sticky) {
+  position: sticky;
+}
 
-  :where(.fixed-overlay) {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    width: 100%;
-    height: 100%;
-  }
+:where(.fixed-overlay) {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+}
 
-  :where(.top-0) {
-    top: 0;
-  }
+:where(.top-0) {
+  top: 0;
+}
+:where(.bottom-0) {
+  bottom: 0;
+}
+:where(.left-0) {
+  left: 0;
+}
+:where(.right-0) {
+  right: 0;
+}
+:where(.inset-0) {
+  inset: 0;
 }

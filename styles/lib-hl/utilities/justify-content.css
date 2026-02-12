@@ -1,22 +1,20 @@
-@layer utilities {
-  :where(.justify-content-start),
-  :where(.justify-start) {
-    justify-content: flex-start;
-  }
-  :where(.justify-content-center),
-  :where(.justify-center) {
-    justify-content: center;
-  }
-  :where(.justify-content-end),
-  :where(.justify-end) {
-    justify-content: flex-end;
-  }
-  :where(.justify-content-space-between),
-  :where(.justify-between) {
-    justify-content: space-between;
-  }
-  :where(.justify-content-space-around),
-  :where(.justify-around) {
-    justify-content: space-around;
-  }
+:where(.justify-content-start),
+:where(.justify-start) {
+  justify-content: flex-start;
+}
+:where(.justify-content-center),
+:where(.justify-center) {
+  justify-content: center;
+}
+:where(.justify-content-end),
+:where(.justify-end) {
+  justify-content: flex-end;
+}
+:where(.justify-content-space-between),
+:where(.justify-between) {
+  justify-content: space-between;
+}
+:where(.justify-content-space-around),
+:where(.justify-around) {
+  justify-content: space-around;
 }
