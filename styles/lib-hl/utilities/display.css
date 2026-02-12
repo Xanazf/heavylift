@@ -1,18 +1,27 @@
 @layer utilities {
   /* Canonical display utilities */
-  :where(.display-block) {
+  :where(.display-block),
+  :where(.block) {
     display: block;
   }
-  :where(.display-inline-block) {
+  :where(.display-inline-block),
+  :where(.inline-block) {
     display: inline-block;
   }
-  :where(.display-none) {
+  :where(.display-inline),
+  :where(.inline) {
+    display: inline;
+  }
+  :where(.display-none),
+  :where(.hidden) {
     display: none;
   }
-  :where(.display-flex) {
+  :where(.display-flex),
+  :where(.flex) {
     display: flex;
   }
-  :where(.display-grid) {
+  :where(.display-grid),
+  :where(.grid) {
     display: grid;
   }
 
