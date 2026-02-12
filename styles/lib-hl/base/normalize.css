@@ -225,7 +225,7 @@ samp {
  * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
 button {
-  all: none;
+  all: unset;
 }
 button,
 input,
@@ -267,6 +267,7 @@ select {
 button,
 html input[type="button"],
 input[type="reset"] {
+  appearance: button;
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
