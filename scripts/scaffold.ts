@@ -52,7 +52,7 @@ program
 }
 `;
     fs.writeFileSync(filePath, content);
-    console.log(chalk.green(`✔ Created: ${filePath}`));
+    console.log(chalk.green(`√ Created: ${filePath}`));
 
     // 3. Update entry.css
     if (fs.existsSync(ENTRY_FILE)) {
@@ -67,12 +67,13 @@ program
         lines.push(newImport);
         lines.sort(); // Maintain alphabetical order
         // Reconstruct file with single newline at the end
-        fs.writeFileSync(ENTRY_FILE, lines.join("\n") + "\n");
-        console.log(chalk.green(`✔ Updated: ${ENTRY_FILE}`));
+        // fs.writeFileSync(ENTRY_FILE, lines.join("\n") + "\n");
+        fs.writeFileSync(ENTRY_FILE, `${lines.join("\n")}\n`);
+        console.log(chalk.green(`√ Updated: ${ENTRY_FILE}`));
       } else {
         console.log(
           chalk.yellow(
-            `⚠ Skipped: ${ENTRY_FILE} already includes ${fileName}`
+            `! Skipped: ${ENTRY_FILE} already includes ${fileName}`
           )
         );
       }
