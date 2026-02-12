@@ -18,10 +18,20 @@ HeavyLift is a CSS design system and tooling suite that merges **Material Design
     ```bash
     npm run generate-colors "#HEX_CODE"
     ```
+*   **Scaffold Component:**
+    Creates a new CSS component file and registers it in `entry.css`.
+    ```bash
+    npm run scaffold "component-name"
+    ```
 *   **Build CSS:**
-    Bundles and minifies `global.css` using Lightning CSS.
+    Bundles and minifies `global.css` and copies assets to `dist/`.
     ```bash
     npm run build
+    ```
+*   **Release:**
+    Runs all checks, tests, builds the project, and publishes to npm.
+    ```bash
+    npm run release
     ```
 *   **Test:**
     Runs unit tests for the color generator.
