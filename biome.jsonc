@@ -1,5 +1,8 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.3.2/schema.json",
+  "files": {
+    "ignore": ["coverage", "dist", "generated-colors", "node_modules"]
+  },
   "formatter": {
     "enabled": true,
     "formatWithErrors": true,
@@ -66,7 +69,7 @@
             "noNonNullAssertion": "off"
           },
           "suspicious": {
-            "noExplicitAny": "info",
+            "noExplicitAny": "off",
             "noDuplicateClassMembers": "off",
             "noEmptyBlockStatements": "off"
           },

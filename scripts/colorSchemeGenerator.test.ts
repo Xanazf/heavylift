@@ -1,10 +1,10 @@
-import { describe, expect, it, vi, afterEach } from "vitest";
+import * as fs from "node:fs";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import {
+  exportColorSchemeToJson,
   generateColorScheme,
   generateColorSchemeFromColors,
-  exportColorSchemeToJson,
 } from "./colorSchemeGenerator";
-import * as fs from "node:fs";
 
 // Mock fs module
 vi.mock("node:fs", () => ({
@@ -95,6 +95,4 @@ describe("Color Scheme Generator", () => {
       "utf8"
     );
   });
-
-
 });
