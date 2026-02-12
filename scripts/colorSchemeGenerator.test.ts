@@ -1,10 +1,10 @@
-import * as fs from "node:fs";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { describe, expect, it, vi, afterEach } from "vitest";
 import {
-  exportColorSchemeToJson,
   generateColorScheme,
   generateColorSchemeFromColors,
+  exportColorSchemeToJson,
 } from "./colorSchemeGenerator";
+import * as fs from "node:fs";
 
 // Mock fs module
 vi.mock("node:fs", () => ({
@@ -40,6 +40,35 @@ describe("Color Scheme Generator", () => {
 
     expect(scheme.light__primary_hlv).toBeDefined();
     expect(scheme.light__secondary_hlv).toBeDefined();
+    expect(scheme.light__tertiary_hlv).toBeDefined();
+    expect(scheme.light__error_hlv).toBeDefined();
+  });
+
+  it("should respect the variant parameter", () => {
+    const primary = "#004a99";
+    const schemeExpressive = generateColorScheme(primary, undefined, undefined, undefined, "expressive");
+    const schemeTonal = generateColorScheme(primary, undefined, undefined, undefined, "tonalspot");
+
+    expect(schemeExpressive.light__primary_hlv).not.toBe(schemeTonal.light__primary_hlv);
+  });
+
+  it("should support all variant types", () => {
+    const primary = "#004a99";
+    const variants: any[] = [
+      "expressive",
+      "tonalspot",
+      "vibrant",
+      "fidelity",
+      "fruit-salad",
+      "monochrome",
+      "neutral",
+      "rainbow",
+    ];
+
+    for (const variant of variants) {
+      const scheme = generateColorScheme(primary, undefined, undefined, undefined, variant);
+      expect(scheme.light__primary_hlv).toBeDefined();
+    }
   });
 
   it("should return JSON and CSS output formats", () => {

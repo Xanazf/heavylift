@@ -13,8 +13,8 @@ export default defineConfig([
   },
   {
     // CLI needs to be ESM usually or bundled specifically, keeping it simple
-    entry: ["scripts/generateColorScheme.ts"],
-    format: ["esm"],
+    entry: ["scripts/generateScheme.ts"],
+    format: ["cjs"],
     outDir: "dist",
     banner: {
       js: "#!/usr/bin/env node",

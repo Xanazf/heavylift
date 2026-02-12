@@ -1,3 +1,13 @@
+/**
+ * CLI Tool for HeavyLift Component Scaffolding.
+ *
+ * Automates the creation of new CSS component files and their
+ * registration in the design system's entry point.
+ *
+ * Usage:
+ * npm run scaffold "my-component"
+ */
+
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -43,7 +53,10 @@ program
       process.exit(1);
     }
 
-    // 2. Create the new CSS file
+    /**
+     * Boilerplate content for new CSS components.
+     * Includes a local variable definition placeholder.
+     */
     const content = `/* ${name} component */
 
 .${name} {
@@ -54,7 +67,7 @@ program
     fs.writeFileSync(filePath, content);
     console.log(chalk.green(`√ Created: ${filePath}`));
 
-    // 3. Update entry.css
+    // 3. Update entry.css (Automatic Registration)
     if (fs.existsSync(ENTRY_FILE)) {
       const entryContent = fs.readFileSync(ENTRY_FILE, "utf-8");
       // Split by newline, trim, and remove empty lines
@@ -65,9 +78,8 @@ program
 
       if (!lines.includes(newImport)) {
         lines.push(newImport);
-        lines.sort(); // Maintain alphabetical order
+        lines.sort(); // Maintain alphabetical order for predictable bundle structure
         // Reconstruct file with single newline at the end
-        // fs.writeFileSync(ENTRY_FILE, lines.join("\n") + "\n");
         fs.writeFileSync(ENTRY_FILE, `${lines.join("\n")}\n`);
         console.log(chalk.green(`√ Updated: ${ENTRY_FILE}`));
       } else {

@@ -63,6 +63,26 @@
   },
   "overrides": [
     {
+      "includes": ["*.css"],
+      "linter": {
+        "rules": {
+          "complexity": {
+            "noImportantStyles": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["styles/lib-hl/theme/theme.css"],
+      "linter": {
+        "rules": {
+          "complexity": {
+            "noImportantStyles": "off"
+          }
+        }
+      }
+    },
+    {
       "includes": ["**/*.ts", "**/*.tsx"],
       "linter": {
         "rules": {

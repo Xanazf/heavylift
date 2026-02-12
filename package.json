@@ -1,16 +1,16 @@
 {
   "name": "heavylift",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A lightweight CSS design system merging MD3, LiftKit, and Tailwind-like utility.",
   "main": "./dist/core.js",
   "module": "./dist/core.mjs",
   "types": "./dist/core.d.ts",
   "style": "./dist/global.css",
   "bin": {
-    "heavylift-gen": "./dist/generateColorScheme.mjs"
+    "heavylift-gen": "./dist/generateScheme.js"
   },
   "scripts": {
-    "generate-colors": "tsx scripts/generateColorScheme.ts",
+    "generate-scheme": "tsx scripts/generateScheme.ts",
     "scaffold": "tsx scripts/scaffold.ts",
     "test": "vitest run",
     "release": "npm run check && npm run test && npm run build && npm publish --access public",

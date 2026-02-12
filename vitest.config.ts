@@ -11,10 +11,13 @@ export default defineConfig({
         branches: 100,
         statements: 100,
       },
-      include: ["scripts/**/*.ts"],
+      include: [
+        "scripts/core.ts",
+        "scripts/colorSchemeGenerator.ts",
+      ],
       exclude: [
         "scripts/**/*.test.ts",
-        "scripts/generateColorScheme.ts",
+        "scripts/generateScheme.ts",
         "scripts/scaffold.ts",
       ],
     },

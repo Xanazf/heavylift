@@ -14,7 +14,6 @@ HeavyLift is a CSS design system and tooling suite that merges **Material Design
 - **[Styling & Philosophy](./docs/STYLING.md)**: Deep dive into the Golden Ratio system and MD3 integration.
 - **[Component Usage](./docs/COMPONENTS.md)**: HTML structures for Cards, Buttons, Text Fields, etc.
 - **[Utility Reference](./docs/UTILITIES.md)**: Complete list of layout and helper classes.
-- **[Color Generator](./docs/COLOR_SCHEME_GENERATOR.md)**: Documentation for the dynamic theme engine.
 
 ## Building and Running
 
