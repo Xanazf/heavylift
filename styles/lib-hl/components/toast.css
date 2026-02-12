@@ -1,28 +1,30 @@
 .toast {
   --toast-container-color: var(--hl-inversesurface);
   --toast-content-color: var(--hl-inverseonsurface);
-  
+
   --toast-padding: var(--sm);
   --toast-radius: 100em;
-  
+
   display: inline-flex;
   align-items: center;
   gap: var(--sm);
-  
+
   padding: var(--toast-padding) calc(var(--toast-padding) * 1.5);
   background-color: var(--toast-container-color);
   color: var(--toast-content-color);
   border-radius: var(--toast-radius);
   box-shadow: var(--shadow-md);
-  
+
   font-family: var(--font-family-base);
   font-size: var(--body-font-size);
-  
+
   pointer-events: none;
-  
+
   opacity: 0;
   transform: translateY(1em) scale(0.9);
-  transition: opacity 200ms ease, transform 200ms cubic-bezier(0.2, 0, 0, 1);
+  transition:
+    opacity 200ms ease,
+    transform 200ms cubic-bezier(0.2, 0, 0, 1);
 }
 
 .toast.open {

@@ -1,6 +1,20 @@
 @import "./vars.css";
 
 :root {
+  /* Typography Scale Definitions */
+  --display1-font-size: var(--2xl);
+  --display2-font-size: var(--xl);
+  --title1-font-size: var(--lg);
+  --title2-font-size: 1.75em;
+  --title3-font-size: 1.5em;
+  --heading-font-size: 1.25em;
+  --subheading-font-size: 1.125em;
+  --body-font-size: 1.125em;
+  --callout-font-size: 1em;
+  --label-font-size: 1em;
+  --caption-font-size: 0.875em;
+  --capline-font-size: 0.875em;
+
   /* Import HeavyLift's golden ratio variables into Tailwind's theme */
   --spacing-2xs: var(--2xs);
   --spacing-xs: var(--xs);

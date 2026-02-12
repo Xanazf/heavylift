@@ -14,12 +14,12 @@
   left: 0;
   width: 100%;
   margin-top: 4px;
-  
+
   background-color: var(--hl-surfacecontainer);
   border-radius: var(--sm);
   box-shadow: var(--shadow-md);
   z-index: 100;
-  
+
   display: none;
   flex-direction: column;
   padding-block: var(--sm);

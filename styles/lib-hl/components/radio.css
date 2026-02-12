@@ -16,19 +16,19 @@
 .radio-control {
   --rad-unchecked-color: var(--hl-on-surface-variant);
   --rad-checked-color: var(--hl-primary);
-  
+
   --rad-size: var(--lg);
   --rad-inner-size: var(--md);
-  
+
   width: var(--rad-size);
   height: var(--rad-size);
   border: 2px solid var(--rad-unchecked-color);
   border-radius: 50%;
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   position: relative;
   transition: border-color 200ms ease;
 }

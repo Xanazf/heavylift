@@ -23,7 +23,8 @@
   overflow: hidden;
   transition:
     box-shadow 200ms ease,
-    background-color 200ms ease;
+    background-color 200ms ease,
+    border-color 200ms ease;
 }
 
 .card.elevated {
@@ -52,6 +53,89 @@
 
 .card.outlined:hover {
   --card-elevation: var(--shadow-xs);
+}
+
+.card.glass {
+  --card-container-color: color-mix(
+    in srgb,
+    var(--hl-surface) 60%,
+    transparent
+  );
+  --card-outline-color: color-mix(
+    in srgb,
+    var(--hl-info) 20%,
+    transparent
+  );
+  --card-elevation: var(--shadow-sm);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: none;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.card.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    transparent,
+    color-mix(in srgb, var(--hl-info) 30%, transparent),
+    color-mix(in srgb, var(--hl-tertiary) 30%, transparent),
+    transparent
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.5;
+  transition: opacity 400ms ease;
+}
+
+.card.glass:hover {
+  --card-container-color: color-mix(
+    in srgb,
+    var(--hl-surface) 70%,
+    transparent
+  );
+  --card-elevation: var(--shadow-md);
+  --card-outline-color: color-mix(
+    in srgb,
+    var(--hl-info) 40%,
+    transparent
+  );
+}
+
+.card.glass:hover::before {
+  opacity: 1;
+}
+
+.card.glass.interactive::after {
+  background-color: transparent;
+  background-image:
+    radial-gradient(
+      circle at top right,
+      color-mix(in srgb, var(--hl-tertiary) 12%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      color-mix(in srgb, var(--hl-info) 12%, transparent),
+      transparent 60%
+    );
+  transition: opacity 400ms ease;
+}
+
+.card.glass.interactive:hover::after {
+  opacity: 1;
 }
 
 .card.interactive {

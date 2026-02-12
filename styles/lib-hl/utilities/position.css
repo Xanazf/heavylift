@@ -1,9 +1,19 @@
 @layer utilities {
-  :where(.static) { position: static; }
-  :where(.relative) { position: relative; }
-  :where(.absolute) { position: absolute; }
-  :where(.fixed) { position: fixed; }
-  :where(.sticky) { position: sticky; }
+  :where(.static) {
+    position: static;
+  }
+  :where(.relative) {
+    position: relative;
+  }
+  :where(.absolute) {
+    position: absolute;
+  }
+  :where(.fixed) {
+    position: fixed;
+  }
+  :where(.sticky) {
+    position: sticky;
+  }
 
   :where(.fixed-overlay) {
     position: fixed;
@@ -13,5 +23,7 @@
     height: 100%;
   }
 
-  :where(.top-0) { top: 0; }
+  :where(.top-0) {
+    top: 0;
+  }
 }

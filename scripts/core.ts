@@ -68,9 +68,11 @@ function getRole(
   scheme: DynamicScheme,
   role: keyof typeof MaterialDynamicColors
 ): string {
-  const dynamicColor = MaterialDynamicColors[role as keyof typeof MaterialDynamicColors];
-  if (!dynamicColor) return "#000000";
-  // @ts-ignore: Library types might be slightly mismatched in some versions
+  const dynamicColor =
+    MaterialDynamicColors[
+      role as keyof typeof MaterialDynamicColors
+    ];
+  // @ts-expect-error: Library types might be slightly mismatched in some versions
   return hexFromArgb(dynamicColor.getArgb(scheme));
 }
 
@@ -100,7 +102,9 @@ export function generateColorScheme(
   const primaryArgb = argbFromHex(color1);
   const secondaryArgb = color2 ? argbFromHex(color2) : undefined;
   const tertiaryArgb = color3 ? argbFromHex(color3) : undefined;
-  const errorArgb = color4 ? argbFromHex(color4) : SEMANTIC_COLORS.ERROR;
+  const errorArgb = color4
+    ? argbFromHex(color4)
+    : SEMANTIC_COLORS.ERROR;
 
   const createScheme = (isDark: boolean) => {
     const scheme = new SchemeTonalSpot(
@@ -108,9 +112,14 @@ export function generateColorScheme(
       isDark,
       0.0
     );
-    if (secondaryArgb) (scheme as any).secondaryPalette = TonalPalette.fromInt(secondaryArgb);
-    if (tertiaryArgb) (scheme as any).tertiaryPalette = TonalPalette.fromInt(tertiaryArgb);
-    if (errorArgb) (scheme as any).errorPalette = TonalPalette.fromInt(errorArgb);
+    if (secondaryArgb)
+      (scheme as any).secondaryPalette =
+        TonalPalette.fromInt(secondaryArgb);
+    if (tertiaryArgb)
+      (scheme as any).tertiaryPalette =
+        TonalPalette.fromInt(tertiaryArgb);
+    (scheme as any).errorPalette =
+      TonalPalette.fromInt(errorArgb);
     return scheme;
   };
 
@@ -127,23 +136,49 @@ export function generateColorScheme(
     };
 
     for (const role of CORE_ROLES) {
-      const capRole = role.charAt(0).toUpperCase() + role.slice(1);
+      const capRole =
+        role.charAt(0).toUpperCase() + role.slice(1);
       addColor(role, getRole(scheme, role as any));
-      addColor(`on${role}`, getRole(scheme, `on${capRole}` as any));
-      addColor(`${role}container`, getRole(scheme, `${role}Container` as any));
-      addColor(`on${role}container`, getRole(scheme, `on${capRole}Container` as any));
+      addColor(
+        `on${role}`,
+        getRole(scheme, `on${capRole}` as any)
+      );
+      addColor(
+        `${role}container`,
+        getRole(scheme, `${role}Container` as any)
+      );
+      addColor(
+        `on${role}container`,
+        getRole(scheme, `on${capRole}Container` as any)
+      );
     }
 
-    for (const role of [...SURFACE_ROLES, ...EXTENDED_SURFACE_ROLES]) {
+    for (const role of [
+      ...SURFACE_ROLES,
+      ...EXTENDED_SURFACE_ROLES,
+    ]) {
       addColor(role, getRole(scheme, role as any));
     }
 
     for (const role of FIXED_ROLES) {
-      const capRole = role.charAt(0).toUpperCase() + role.slice(1);
-      addColor(`${role}fixed`, getRole(scheme, `${role}Fixed` as any));
-      addColor(`${role}fixeddim`, getRole(scheme, `${role}FixedDim` as any));
-      addColor(`on${role}fixed`, getRole(scheme, `on${capRole}Fixed` as any));
-      addColor(`on${role}fixedvariant`, getRole(scheme, `on${capRole}FixedVariant` as any));
+      const capRole =
+        role.charAt(0).toUpperCase() + role.slice(1);
+      addColor(
+        `${role}fixed`,
+        getRole(scheme, `${role}Fixed` as any)
+      );
+      addColor(
+        `${role}fixeddim`,
+        getRole(scheme, `${role}FixedDim` as any)
+      );
+      addColor(
+        `on${role}fixed`,
+        getRole(scheme, `on${capRole}Fixed` as any)
+      );
+      addColor(
+        `on${role}fixedvariant`,
+        getRole(scheme, `on${capRole}FixedVariant` as any)
+      );
     }
 
     const semantics = {

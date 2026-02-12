@@ -1,0 +1,25 @@
+.glass {
+  background-color: color-mix(
+    in srgb,
+    var(--hl-surface) 60%,
+    transparent
+  );
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  /* border: 1px solid */
+  /*   color-mix(in srgb, var(--hl-info) 20%, transparent); */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+.glass:not(.static):hover {
+  background-color: color-mix(
+    in srgb,
+    var(--hl-surface) 70%,
+    transparent
+  );
+  border-color: color-mix(
+    in srgb,
+    var(--hl-info) 40%,
+    transparent
+  );
+}

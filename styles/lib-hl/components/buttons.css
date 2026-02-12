@@ -5,7 +5,7 @@
   --btn-elevation: none;
   --btn-state-layer-color: var(--hl-primary);
 
-  --btn-height: var(--2xl);
+  --btn-height: var(--xl);
   --btn-padding-x: var(--lg);
   --btn-gap: var(--xs);
   --btn-radius: 100em;
@@ -94,6 +94,54 @@
   --btn-elevation: var(--shadow-md);
 }
 
+.button.glass {
+  --btn-container-color: color-mix(
+    in srgb,
+    var(--hl-surface) 60%,
+    transparent
+  );
+  --btn-content-color: var(--hl-primary);
+  --btn-outline-color: color-mix(
+    in srgb,
+    var(--hl-info) 20%,
+    transparent
+  );
+  --btn-state-layer-color: var(--hl-primary);
+  --btn-elevation: var(--shadow-xs);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  border: none;
+}
+
+.button.glass:hover {
+  --btn-container-color: color-mix(
+    in srgb,
+    var(--hl-surface) 70%,
+    transparent
+  );
+  --btn-elevation: var(--shadow-sm);
+  --btn-outline-color: color-mix(
+    in srgb,
+    var(--hl-info) 40%,
+    transparent
+  );
+}
+
+.button.glass::after {
+  background-color: transparent;
+  background-image: radial-gradient(
+    circle at bottom left,
+    color-mix(in srgb, var(--hl-info) 15%, transparent),
+    transparent 70%
+  );
+  transition: opacity 400ms ease;
+}
+
+.button.glass:hover::after {
+  opacity: 1;
+}
+
 .button:disabled,
 .button.disabled {
   pointer-events: none;
@@ -127,11 +175,168 @@
 }
 
 .button.sm {
-  --btn-height: var(--xl);
+  --btn-height: var(--lg);
   font-size: var(--caption-font-size);
 }
 
 .button.lg {
-  --btn-height: var(--3xl);
+  --btn-height: var(--2xl);
   font-size: var(--body-font-size);
+}
+
+@media (max-width: 48rem) {
+  .button {
+    --btn-height: var(--lg);
+  }
+  .button.lg {
+    --btn-height: var(--xl);
+  }
+}
+
+/* Color Variants */
+.button.hl-primary {
+  --btn-container-color: var(--hl-primary);
+  --btn-content-color: var(--hl-onprimary);
+  --btn-state-layer-color: var(--hl-onprimary);
+  --btn-outline-color: var(--hl-primary);
+}
+
+.button.hl-secondary {
+  --btn-container-color: var(--hl-secondary);
+  --btn-content-color: var(--hl-onsecondary);
+  --btn-state-layer-color: var(--hl-onsecondary);
+  --btn-outline-color: var(--hl-secondary);
+}
+
+.button.hl-tertiary {
+  --btn-container-color: var(--hl-tertiary);
+  --btn-content-color: var(--hl-ontertiary);
+  --btn-state-layer-color: var(--hl-ontertiary);
+  --btn-outline-color: var(--hl-tertiary);
+}
+
+.button.hl-success {
+  --btn-container-color: var(--hl-success);
+  --btn-content-color: var(--hl-onsuccess);
+  --btn-state-layer-color: var(--hl-onsuccess);
+  --btn-outline-color: var(--hl-success);
+}
+
+.button.hl-error {
+  --btn-container-color: var(--hl-error);
+  --btn-content-color: var(--hl-onerror);
+  --btn-state-layer-color: var(--hl-onerror);
+  --btn-outline-color: var(--hl-error);
+}
+
+.button.hl-warning {
+  --btn-container-color: var(--hl-warning);
+  --btn-content-color: var(--hl-onwarning);
+  --btn-state-layer-color: var(--hl-onwarning);
+  --btn-outline-color: var(--hl-warning);
+}
+
+.button.hl-info {
+  --btn-container-color: var(--hl-info);
+  --btn-content-color: var(--hl-oninfo);
+  --btn-state-layer-color: var(--hl-oninfo);
+  --btn-outline-color: var(--hl-info);
+}
+
+/* Adjustments for non-filled variants when using color classes */
+.button.outlined.hl-primary,
+.button.outlined.hl-secondary,
+.button.outlined.hl-tertiary,
+.button.outlined.hl-success,
+.button.outlined.hl-error,
+.button.outlined.hl-warning,
+.button.outlined.hl-info,
+.button.text.hl-primary,
+.button.text.hl-secondary,
+.button.text.hl-tertiary,
+.button.text.hl-success,
+.button.text.hl-error,
+.button.text.hl-warning,
+.button.text.hl-info,
+.button.glass.hl-primary,
+.button.glass.hl-secondary,
+.button.glass.hl-tertiary,
+.button.glass.hl-success,
+.button.glass.hl-error,
+.button.glass.hl-warning,
+.button.glass.hl-info {
+  --btn-container-color: transparent;
+  --btn-content-color: var(--btn-outline-color);
+  --btn-state-layer-color: var(--btn-outline-color);
+}
+
+.button.glass.hl-primary,
+.button.glass.hl-secondary,
+.button.glass.hl-tertiary,
+.button.glass.hl-success,
+.button.glass.hl-error,
+.button.glass.hl-warning,
+.button.glass.hl-info {
+  --btn-container-color: color-mix(
+    in srgb,
+    var(--hl-surface) 60%,
+    transparent
+  );
+}
+
+.button.glass.hl-primary:hover {
+  --btn-content-color: var(--hl-primary);
+  --btn-container-color: color-mix(
+    in srgb,
+    var(--hl-surface) 70%,
+    transparent
+  );
+}
+.button.glass.hl-secondary:hover {
+  --btn-content-color: var(--hl-secondary);
+  --btn-container-color: color-mix(
+    in srgb,
+    var(--hl-surface) 70%,
+    transparent
+  );
+}
+.button.glass.hl-tertiary:hover {
+  --btn-content-color: var(--hl-tertiary);
+  --btn-container-color: color-mix(
+    in srgb,
+    var(--hl-surface) 70%,
+    transparent
+  );
+}
+.button.glass.hl-success:hover {
+  --btn-content-color: var(--hl-success);
+  --btn-container-color: color-mix(
+    in srgb,
+    var(--hl-surface) 70%,
+    transparent
+  );
+}
+.button.glass.hl-error:hover {
+  --btn-content-color: var(--hl-error);
+  --btn-container-color: color-mix(
+    in srgb,
+    var(--hl-surface) 70%,
+    transparent
+  );
+}
+.button.glass.hl-warning:hover {
+  --btn-content-color: var(--hl-warning);
+  --btn-container-color: color-mix(
+    in srgb,
+    var(--hl-surface) 70%,
+    transparent
+  );
+}
+.button.glass.hl-info:hover {
+  --btn-content-color: var(--hl-info);
+  --btn-container-color: color-mix(
+    in srgb,
+    var(--hl-surface) 70%,
+    transparent
+  );
 }

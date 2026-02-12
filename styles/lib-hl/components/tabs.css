@@ -2,87 +2,98 @@
   display: flex;
   width: 100%;
   border-bottom: 1px solid var(--hl-outlinevariant);
-  background-color: var(--hl-surface);
+  background-color: transparent;
 }
 
 .tab {
-  --tab-content-color: var(--hl-onsurfacevariant);
+  --tab-content-color: color-mix(
+    in srgb,
+    var(--hl-onsurfacevariant) 70%,
+    transparent
+  );
   --tab-active-color: var(--hl-primary);
-  --tab-height: var(--3xl);
+  --tab-height: var(--xl); /* Match new button size standard */
   --tab-padding-x: var(--md);
-  
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--sm);
-  
+
   flex: 1;
   height: var(--tab-height);
   padding-inline: var(--tab-padding-x);
-  
+
   color: var(--tab-content-color);
   font-family: var(--font-family-base);
   font-size: var(--label-font-size);
   font-weight: 500;
   text-decoration: none;
   text-transform: none;
-  
+
+  background: transparent;
+  border: none;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   user-select: none;
-  
-  transition: color 200ms ease, background-color 200ms ease;
+
+  transition:
+    color 200ms ease,
+    background-color 200ms ease;
+}
+
+@media (max-width: 48rem) {
+  .tab {
+    --tab-height: var(--xl);
+  }
 }
 
 .tab > i,
-.tab > svg {
-  font-size: var(--lg);
+.tab > svg,
+.tab > .material-symbols-outlined {
+  font-size: var(--btn-icon-size);
   fill: currentColor;
 }
 
 .tab.active {
   color: var(--tab-active-color);
+  --tab-content-color: var(--hl-primary);
 }
 
 .tab.active::before {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
+  left: var(--md);
+  right: var(--md);
   height: 3px;
   background-color: var(--tab-active-color);
   border-radius: 3px 3px 0 0;
   z-index: 1;
 }
 
-.tabs-container.secondary .tab.active::before {
-  height: 100%;
-  opacity: 0.12;
-  border-radius: 0;
-  background-color: var(--tab-active-color);
-  z-index: 0;
-}
-.tabs-container.secondary .tab.active {
-  color: var(--hl-on-surface);
-}
-
 .tab::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: currentColor;
+  background-color: var(--hl-primary);
   opacity: 0;
   transition: opacity 200ms linear;
   pointer-events: none;
   z-index: 0;
 }
-.tab:hover::after {
-  opacity: 0.08;
+
+.tab:hover {
+  color: var(--hl-primary);
 }
+
+.tab:hover::after {
+  opacity: 0.04;
+}
+
 .tab:active::after {
-  opacity: 0.12;
+  opacity: 0.1;
 }
 
 .tabs-container.scrollable {

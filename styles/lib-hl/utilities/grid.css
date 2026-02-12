@@ -1,20 +1,48 @@
 /* Grid Utilities */
 @layer utilities {
-  :where(.grid) { display: grid; }
-  
-  :where(.grid-cols-1) { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-  :where(.grid-cols-2) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  :where(.grid-cols-3) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  :where(.grid-cols-4) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  :where(.grid-cols-5) { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-  :where(.grid-cols-6) { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-  :where(.grid-cols-12) { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-  :where(.grid-cols-none) { grid-template-columns: none; }
+  :where(.grid) {
+    display: grid;
+  }
+
+  :where(.grid-cols-1) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  :where(.grid-cols-2) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  :where(.grid-cols-3) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  :where(.grid-cols-4) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  :where(.grid-cols-5) {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  :where(.grid-cols-6) {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  :where(.grid-cols-12) {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+  :where(.grid-cols-none) {
+    grid-template-columns: none;
+  }
 
   /* Legacy aliases */
-  :where(.col-1) { grid-template-columns: repeat(1, 1fr); }
-  :where(.col-2) { grid-template-columns: repeat(2, 1fr); }
-  :where(.col-3) { grid-template-columns: repeat(3, 1fr); }
-  :where(.col-4) { grid-template-columns: repeat(4, 1fr); }
-  :where(.col-12) { grid-template-columns: repeat(12, 1fr); }
+  :where(.col-1) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  :where(.col-2) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  :where(.col-3) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  :where(.col-4) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  :where(.col-12) {
+    grid-template-columns: repeat(12, 1fr);
+  }
 }

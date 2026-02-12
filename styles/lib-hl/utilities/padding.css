@@ -12,95 +12,251 @@
   }
 
   /* Shorthand */
-  :where(.p-0) { padding: 0; }
-  :where(.p-2xs) { padding: var(--p-2xs); }
-  :where(.p-xs) { padding: var(--p-xs); }
-  :where(.p-sm) { padding: var(--p-sm); }
-  :where(.p-md) { padding: var(--p-md); }
-  :where(.p-lg) { padding: var(--p-lg); }
-  :where(.p-xl) { padding: var(--p-xl); }
-  :where(.p-2xl) { padding: var(--p-2xl); }
+  :where(.p-0) {
+    padding: 0;
+  }
+  :where(.p-2xs) {
+    padding: var(--p-2xs);
+  }
+  :where(.p-xs) {
+    padding: var(--p-xs);
+  }
+  :where(.p-sm) {
+    padding: var(--p-sm);
+  }
+  :where(.p-md) {
+    padding: var(--p-md);
+  }
+  :where(.p-lg) {
+    padding: var(--p-lg);
+  }
+  :where(.p-xl) {
+    padding: var(--p-xl);
+  }
+  :where(.p-2xl) {
+    padding: var(--p-2xl);
+  }
 
   /* Axis */
-  :where(.px-2xs) { padding-inline: var(--p-2xs); }
-  :where(.px-xs) { padding-inline: var(--p-xs); }
-  :where(.px-sm) { padding-inline: var(--p-sm); }
-  :where(.px-md) { padding-inline: var(--p-md); }
-  :where(.px-lg) { padding-inline: var(--p-lg); }
-  :where(.px-xl) { padding-inline: var(--p-xl); }
-  :where(.px-2xl) { padding-inline: var(--p-2xl); }
+  :where(.px-2xs) {
+    padding-inline: var(--p-2xs);
+  }
+  :where(.px-xs) {
+    padding-inline: var(--p-xs);
+  }
+  :where(.px-sm) {
+    padding-inline: var(--p-sm);
+  }
+  :where(.px-md) {
+    padding-inline: var(--p-md);
+  }
+  :where(.px-lg) {
+    padding-inline: var(--p-lg);
+  }
+  :where(.px-xl) {
+    padding-inline: var(--p-xl);
+  }
+  :where(.px-2xl) {
+    padding-inline: var(--p-2xl);
+  }
 
-  :where(.py-2xs) { padding-block: var(--p-2xs); }
-  :where(.py-xs) { padding-block: var(--p-xs); }
-  :where(.py-sm) { padding-block: var(--p-sm); }
-  :where(.py-md) { padding-block: var(--p-md); }
-  :where(.py-lg) { padding-block: var(--p-lg); }
-  :where(.py-xl) { padding-block: var(--p-xl); }
-  :where(.py-2xl) { padding-block: var(--p-2xl); }
+  :where(.py-2xs) {
+    padding-block: var(--p-2xs);
+  }
+  :where(.py-xs) {
+    padding-block: var(--p-xs);
+  }
+  :where(.py-sm) {
+    padding-block: var(--p-sm);
+  }
+  :where(.py-md) {
+    padding-block: var(--p-md);
+  }
+  :where(.py-lg) {
+    padding-block: var(--p-lg);
+  }
+  :where(.py-xl) {
+    padding-block: var(--p-xl);
+  }
+  :where(.py-2xl) {
+    padding-block: var(--p-2xl);
+  }
 
   /* Logical Sides */
-  :where(.ps-2xs) { padding-inline-start: var(--p-2xs); }
-  :where(.ps-xs) { padding-inline-start: var(--p-xs); }
-  :where(.ps-sm) { padding-inline-start: var(--p-sm); }
-  :where(.ps-md) { padding-inline-start: var(--p-md); }
-  :where(.ps-lg) { padding-inline-start: var(--p-lg); }
-  :where(.ps-xl) { padding-inline-start: var(--p-xl); }
-  :where(.ps-2xl) { padding-inline-start: var(--p-2xl); }
+  :where(.ps-2xs) {
+    padding-inline-start: var(--p-2xs);
+  }
+  :where(.ps-xs) {
+    padding-inline-start: var(--p-xs);
+  }
+  :where(.ps-sm) {
+    padding-inline-start: var(--p-sm);
+  }
+  :where(.ps-md) {
+    padding-inline-start: var(--p-md);
+  }
+  :where(.ps-lg) {
+    padding-inline-start: var(--p-lg);
+  }
+  :where(.ps-xl) {
+    padding-inline-start: var(--p-xl);
+  }
+  :where(.ps-2xl) {
+    padding-inline-start: var(--p-2xl);
+  }
 
-  :where(.pe-2xs) { padding-inline-end: var(--p-2xs); }
-  :where(.pe-xs) { padding-inline-end: var(--p-xs); }
-  :where(.pe-sm) { padding-inline-end: var(--p-sm); }
-  :where(.pe-md) { padding-inline-end: var(--p-md); }
-  :where(.pe-lg) { padding-inline-end: var(--p-lg); }
-  :where(.pe-xl) { padding-inline-end: var(--p-xl); }
-  :where(.pe-2xl) { padding-inline-end: var(--p-2xl); }
+  :where(.pe-2xs) {
+    padding-inline-end: var(--p-2xs);
+  }
+  :where(.pe-xs) {
+    padding-inline-end: var(--p-xs);
+  }
+  :where(.pe-sm) {
+    padding-inline-end: var(--p-sm);
+  }
+  :where(.pe-md) {
+    padding-inline-end: var(--p-md);
+  }
+  :where(.pe-lg) {
+    padding-inline-end: var(--p-lg);
+  }
+  :where(.pe-xl) {
+    padding-inline-end: var(--p-xl);
+  }
+  :where(.pe-2xl) {
+    padding-inline-end: var(--p-2xl);
+  }
 
-  :where(.pt-2xs) { padding-block-start: var(--p-2xs); }
-  :where(.pt-xs) { padding-block-start: var(--p-xs); }
-  :where(.pt-sm) { padding-block-start: var(--p-sm); }
-  :where(.pt-md) { padding-block-start: var(--p-md); }
-  :where(.pt-lg) { padding-block-start: var(--p-lg); }
-  :where(.pt-xl) { padding-block-start: var(--p-xl); }
-  :where(.pt-2xl) { padding-block-start: var(--p-2xl); }
+  :where(.pt-2xs) {
+    padding-block-start: var(--p-2xs);
+  }
+  :where(.pt-xs) {
+    padding-block-start: var(--p-xs);
+  }
+  :where(.pt-sm) {
+    padding-block-start: var(--p-sm);
+  }
+  :where(.pt-md) {
+    padding-block-start: var(--p-md);
+  }
+  :where(.pt-lg) {
+    padding-block-start: var(--p-lg);
+  }
+  :where(.pt-xl) {
+    padding-block-start: var(--p-xl);
+  }
+  :where(.pt-2xl) {
+    padding-block-start: var(--p-2xl);
+  }
 
-  :where(.pb-2xs) { padding-block-end: var(--p-2xs); }
-  :where(.pb-xs) { padding-block-end: var(--p-xs); }
-  :where(.pb-sm) { padding-block-end: var(--p-sm); }
-  :where(.pb-md) { padding-block-end: var(--p-md); }
-  :where(.pb-lg) { padding-block-end: var(--p-lg); }
-  :where(.pb-xl) { padding-block-end: var(--p-xl); }
-  :where(.pb-2xl) { padding-block-end: var(--p-2xl); }
+  :where(.pb-2xs) {
+    padding-block-end: var(--p-2xs);
+  }
+  :where(.pb-xs) {
+    padding-block-end: var(--p-xs);
+  }
+  :where(.pb-sm) {
+    padding-block-end: var(--p-sm);
+  }
+  :where(.pb-md) {
+    padding-block-end: var(--p-md);
+  }
+  :where(.pb-lg) {
+    padding-block-end: var(--p-lg);
+  }
+  :where(.pb-xl) {
+    padding-block-end: var(--p-xl);
+  }
+  :where(.pb-2xl) {
+    padding-block-end: var(--p-2xl);
+  }
 
   /* Compatibility Aliases */
-  :where(.p-left-2xs) { padding-left: var(--p-2xs); }
-  :where(.p-left-xs) { padding-left: var(--p-xs); }
-  :where(.p-left-sm) { padding-left: var(--p-sm); }
-  :where(.p-left-md) { padding-left: var(--p-md); }
-  :where(.p-left-lg) { padding-left: var(--p-lg); }
-  :where(.p-left-xl) { padding-left: var(--p-xl); }
-  :where(.p-left-2xl) { padding-left: var(--p-2xl); }
+  :where(.p-left-2xs) {
+    padding-left: var(--p-2xs);
+  }
+  :where(.p-left-xs) {
+    padding-left: var(--p-xs);
+  }
+  :where(.p-left-sm) {
+    padding-left: var(--p-sm);
+  }
+  :where(.p-left-md) {
+    padding-left: var(--p-md);
+  }
+  :where(.p-left-lg) {
+    padding-left: var(--p-lg);
+  }
+  :where(.p-left-xl) {
+    padding-left: var(--p-xl);
+  }
+  :where(.p-left-2xl) {
+    padding-left: var(--p-2xl);
+  }
 
-  :where(.p-right-2xs) { padding-right: var(--p-2xs); }
-  :where(.p-right-xs) { padding-right: var(--p-xs); }
-  :where(.p-right-sm) { padding-right: var(--p-sm); }
-  :where(.p-right-md) { padding-right: var(--p-md); }
-  :where(.p-right-lg) { padding-right: var(--p-lg); }
-  :where(.p-right-xl) { padding-right: var(--p-xl); }
-  :where(.p-right-2xl) { padding-right: var(--p-2xl); }
+  :where(.p-right-2xs) {
+    padding-right: var(--p-2xs);
+  }
+  :where(.p-right-xs) {
+    padding-right: var(--p-xs);
+  }
+  :where(.p-right-sm) {
+    padding-right: var(--p-sm);
+  }
+  :where(.p-right-md) {
+    padding-right: var(--p-md);
+  }
+  :where(.p-right-lg) {
+    padding-right: var(--p-lg);
+  }
+  :where(.p-right-xl) {
+    padding-right: var(--p-xl);
+  }
+  :where(.p-right-2xl) {
+    padding-right: var(--p-2xl);
+  }
 
-  :where(.p-top-2xs) { padding-top: var(--p-2xs); }
-  :where(.p-top-xs) { padding-top: var(--p-xs); }
-  :where(.p-top-sm) { padding-top: var(--p-sm); }
-  :where(.p-top-md) { padding-top: var(--p-md); }
-  :where(.p-top-lg) { padding-top: var(--p-lg); }
-  :where(.p-top-xl) { padding-top: var(--p-xl); }
-  :where(.p-top-2xl) { padding-top: var(--p-2xl); }
+  :where(.p-top-2xs) {
+    padding-top: var(--p-2xs);
+  }
+  :where(.p-top-xs) {
+    padding-top: var(--p-xs);
+  }
+  :where(.p-top-sm) {
+    padding-top: var(--p-sm);
+  }
+  :where(.p-top-md) {
+    padding-top: var(--p-md);
+  }
+  :where(.p-top-lg) {
+    padding-top: var(--p-lg);
+  }
+  :where(.p-top-xl) {
+    padding-top: var(--p-xl);
+  }
+  :where(.p-top-2xl) {
+    padding-top: var(--p-2xl);
+  }
 
-  :where(.p-bottom-2xs) { padding-bottom: var(--p-2xs); }
-  :where(.p-bottom-xs) { padding-bottom: var(--p-xs); }
-  :where(.p-bottom-sm) { padding-bottom: var(--p-sm); }
-  :where(.p-bottom-md) { padding-bottom: var(--p-md); }
-  :where(.p-bottom-lg) { padding-bottom: var(--p-lg); }
-  :where(.p-bottom-xl) { padding-bottom: var(--p-xl); }
-  :where(.p-bottom-2xl) { padding-bottom: var(--p-2xl); }
+  :where(.p-bottom-2xs) {
+    padding-bottom: var(--p-2xs);
+  }
+  :where(.p-bottom-xs) {
+    padding-bottom: var(--p-xs);
+  }
+  :where(.p-bottom-sm) {
+    padding-bottom: var(--p-sm);
+  }
+  :where(.p-bottom-md) {
+    padding-bottom: var(--p-md);
+  }
+  :where(.p-bottom-lg) {
+    padding-bottom: var(--p-lg);
+  }
+  :where(.p-bottom-xl) {
+    padding-bottom: var(--p-xl);
+  }
+  :where(.p-bottom-2xl) {
+    padding-bottom: var(--p-2xl);
+  }
 }

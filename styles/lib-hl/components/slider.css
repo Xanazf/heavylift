@@ -9,10 +9,10 @@
   --slider-active-color: var(--hl-primary);
   --slider-inactive-color: var(--hl-surfacecontainerhighest);
   --slider-thumb-color: var(--hl-primary);
-  
+
   --slider-height: 4px;
   --slider-thumb-size: 20px;
-  
+
   appearance: none;
   width: 100%;
   height: var(--slider-height);
@@ -29,7 +29,9 @@
   height: var(--slider-thumb-size);
   background: var(--slider-thumb-color);
   border-radius: 50%;
-  transition: transform 100ms ease, box-shadow 100ms ease;
+  transition:
+    transform 100ms ease,
+    box-shadow 100ms ease;
   box-shadow: 0 0 0 0 transparent;
 }
 

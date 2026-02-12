@@ -18,20 +18,22 @@
   --sw-track-on: var(--hl-primary);
   --sw-thumb-off: var(--hl-outline);
   --sw-thumb-on: var(--hl-onprimary);
-  
+
   --sw-width: var(--3xl);
   --sw-height: var(--xl);
   --sw-thumb-size: var(--lg);
   --sw-thumb-pad: 4px;
-  
+
   width: var(--sw-width);
   height: var(--sw-height);
   background-color: var(--sw-track-off);
   border-radius: 100em;
   border: 2px solid var(--hl-outline);
-  
+
   position: relative;
-  transition: background-color 200ms ease, border-color 200ms ease;
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease;
 }
 
 .switch-thumb {
@@ -43,10 +45,12 @@
   background-color: var(--sw-thumb-off);
   border-radius: 50%;
   transform: translateY(-50%);
-  transition: 
-    left 200ms cubic-bezier(0.4, 0, 0.2, 1), 
-    width 200ms, height 200ms, background-color 200ms;
-  
+  transition:
+    left 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    width 200ms,
+    height 200ms,
+    background-color 200ms;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,7 +90,9 @@
   background-color: var(--hl-on-surface);
   border-radius: 50%;
   opacity: 0;
-  transition: opacity 200ms, left 200ms;
+  transition:
+    opacity 200ms,
+    left 200ms;
   pointer-events: none;
 }
 .switch-wrap:hover .switch-track::after {

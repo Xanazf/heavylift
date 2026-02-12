@@ -5,8 +5,15 @@
   src: url("./Material-Symbols-Outlined.woff2") format("woff2");
 }
 
+@font-face {
+  font-family: "Material Symbols Rounded";
+  font-style: normal;
+  font-weight: 100 700;
+  src: url("./Material-Symbols-Rounded.woff2") format("woff2");
+}
+
 .material-symbols-outlined {
-  font-family: "Material Symbols Outlined";
+  font-family: "Material Symbols Outlined", sans-serif;
   font-weight: normal;
   font-style: normal;
   font-size: 1.272em;
@@ -31,8 +38,8 @@
   /* Special rule because icons just do not vertical-align properly at small scales. */
 }
 
-.material-symbols-filled {
-  font-family: "Material Symbols Outlined";
+.material-symbols-rounded {
+  font-family: "Material Symbols Rounded", sans-serif;
   font-weight: normal;
   font-style: normal;
   font-size: 1.272em;

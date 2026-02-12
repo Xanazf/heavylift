@@ -1,30 +1,32 @@
 .tooltip {
   --tooltip-container-color: var(--hl-inversesurface);
   --tooltip-content-color: var(--hl-inverseonsurface);
-  
+
   --tooltip-padding-y: var(--xs);
   --tooltip-padding-x: var(--sm);
   --tooltip-radius: var(--2xs);
-  
+
   display: inline-block;
   padding: var(--tooltip-padding-y) var(--tooltip-padding-x);
-  
+
   background-color: var(--tooltip-container-color);
   color: var(--tooltip-content-color);
   border-radius: var(--tooltip-radius);
-  
+
   font-family: var(--font-family-base);
   font-size: var(--caption-font-size);
   line-height: var(--caption-line-height);
   font-weight: 400;
   white-space: nowrap;
-  
+
   opacity: 0;
   transform: scale(0.9);
-  transition: opacity 200ms ease, transform 200ms ease;
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
   pointer-events: none;
   z-index: 1000;
-  
+
   position: absolute;
 }
 
@@ -63,7 +65,7 @@
   --tooltip-container-color: var(--hl-surfacecontainer);
   --tooltip-content-color: var(--hl-onsurfacevariant);
   --tooltip-radius: var(--sm);
-  
+
   padding: var(--md);
   box-shadow: var(--shadow-md);
   white-space: normal;

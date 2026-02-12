@@ -1,7 +1,13 @@
 @layer utilities {
-  :where(.overflow-hidden) { overflow: hidden; }
-  :where(.overflow-visible) { overflow: visible; }
-  :where(.overflow-scroll) { overflow: scroll; }
+  :where(.overflow-hidden) {
+    overflow: hidden;
+  }
+  :where(.overflow-visible) {
+    overflow: visible;
+  }
+  :where(.overflow-scroll) {
+    overflow: scroll;
+  }
   :where(.overflow-auto) {
     overflow: auto;
     scrollbar-width: thin;

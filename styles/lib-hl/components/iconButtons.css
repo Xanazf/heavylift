@@ -3,27 +3,29 @@
   --ib-content-color: var(--hl-onsurfacevariant);
   --ib-outline-color: transparent;
   --ib-state-layer-color: var(--hl-onsurfacevariant);
-  
+
   --ib-size: var(--xl);
   --ib-icon-size: var(--lg);
   --ib-radius: 100em;
-  
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  
+
   width: var(--ib-size);
   height: var(--ib-size);
   border-radius: var(--ib-radius);
-  
+
   background-color: var(--ib-container-color);
   color: var(--ib-content-color);
   border: 1px solid var(--ib-outline-color);
-  
+
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  transition: background-color 200ms ease, color 200ms ease;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
 }
 
 .icon-button > i,
@@ -91,5 +93,5 @@
 .icon-button:disabled {
   opacity: 0.38;
   pointer-events: none;
-  background-color: transparent; 
+  background-color: transparent;
 }

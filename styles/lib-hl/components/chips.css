@@ -2,18 +2,18 @@
   --chip-height: 32px;
   --chip-container: var(--hl-surfacecontainerlow);
   --chip-content: var(--hl-onsurface);
-  
+
   display: inline-flex;
   align-items: center;
   gap: 8px;
   height: var(--chip-height);
   padding-inline: 16px;
   border-radius: 8px;
-  
+
   background-color: var(--chip-container);
   color: var(--chip-content);
   border: 1px solid var(--hl-outlinevariant);
-  
+
   font-size: var(--label-font-size);
   cursor: pointer;
 }

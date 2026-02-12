@@ -4,19 +4,31 @@
   --nav-bar-active-color: var(--hl-onsurface);
   --nav-bar-indicator-color: var(--hl-secondarycontainer);
   --nav-bar-height: 80px;
-  
+
   display: flex;
   justify-content: space-around;
   align-items: center;
-  
+
   height: var(--nav-bar-height);
   width: 100%;
   background-color: var(--nav-bar-container-color);
-  
+
   position: fixed;
   bottom: 0;
   left: 0;
   z-index: 100;
+}
+
+.nav-bar.glass {
+  --nav-bar-container-color: color-mix(
+    in srgb,
+    var(--hl-surfacecontainer) 60%,
+    transparent
+  );
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-top: 1px solid
+    color-mix(in srgb, var(--hl-info) 20%, transparent);
 }
 
 .nav-item {
@@ -25,12 +37,12 @@
   align-items: center;
   justify-content: center;
   gap: 4px;
-  
+
   color: var(--nav-bar-content-color);
   text-decoration: none;
   font-size: var(--caption-font-size);
   font-weight: 500;
-  
+
   flex: 1;
   cursor: pointer;
   position: relative;

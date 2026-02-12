@@ -2,18 +2,20 @@
   --acc-container-color: var(--hl-surface);
   --acc-header-color: var(--hl-onsurface);
   --acc-content-color: var(--hl-onsurfacevariant);
-  
+
   --acc-padding: var(--md);
   --acc-radius: var(--sm);
-  
+
   display: flex;
   flex-direction: column;
   background-color: var(--acc-container-color);
   border-radius: var(--acc-radius);
   overflow: hidden;
-  
+
   border: 1px solid transparent;
-  transition: background-color 200ms ease, border-color 200ms ease;
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease;
 }
 
 .accordion.outlined {
@@ -29,16 +31,16 @@
   justify-content: space-between;
   width: 100%;
   padding: var(--acc-padding);
-  
+
   background: transparent;
   border: none;
   color: var(--acc-header-color);
-  
+
   font-family: var(--font-family-base);
   font-size: var(--title2-font-size);
   font-weight: 500;
   text-align: left;
-  
+
   cursor: pointer;
   position: relative;
 }
@@ -55,12 +57,14 @@
   color: var(--acc-content-color);
   font-size: var(--body-font-size);
   line-height: var(--body-line-height);
-  
+
   height: 0;
   overflow: hidden;
   opacity: 0;
-  transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1), opacity 300ms linear;
-  
+  transition:
+    height 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 300ms linear;
+
   padding-inline: var(--acc-padding);
 }
 

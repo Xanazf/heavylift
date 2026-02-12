@@ -17,20 +17,22 @@
   --chk-unchecked-color: var(--hl-on-surface-variant);
   --chk-checked-color: var(--hl-primary);
   --chk-checkmark-color: var(--hl-onprimary);
-  
+
   --chk-size: var(--lg);
   --chk-radius: 2px;
-  
+
   width: var(--chk-size);
   height: var(--chk-size);
   border: 2px solid var(--chk-unchecked-color);
   border-radius: var(--chk-radius);
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  transition: background-color 200ms ease, border-color 200ms ease;
+
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease;
   position: relative;
   overflow: hidden;
 }

@@ -53,10 +53,7 @@
   },
   "overrides": [
     {
-      "includes": [
-        "**/*.ts",
-        "**/*.tsx"
-      ],
+      "includes": ["**/*.ts", "**/*.tsx"],
       "linter": {
         "rules": {
           "complexity": {
@@ -80,9 +77,7 @@
       }
     },
     {
-      "includes": [
-        "*.astro"
-      ],
+      "includes": ["*.astro"],
       "linter": {
         "rules": {
           "style": {

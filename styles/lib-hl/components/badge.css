@@ -1,23 +1,23 @@
 .badge {
   --badge-color: var(--hl-error);
   --badge-content-color: var(--hl-onerror);
-  
+
   --badge-size: var(--sm);
   --badge-font-size: 0.75em;
-  
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  
+
   background-color: var(--badge-color);
   color: var(--badge-content-color);
   border-radius: 100em;
-  
+
   min-width: var(--badge-size);
   height: var(--badge-size);
   padding: 0;
-  
+
   position: absolute;
   top: 0;
   right: 0;
@@ -31,7 +31,7 @@
   height: var(--badge-size);
   min-width: var(--badge-size);
   padding-inline: 4px;
-  
+
   font-family: var(--font-family-base);
   font-size: var(--badge-font-size);
   font-weight: 500;

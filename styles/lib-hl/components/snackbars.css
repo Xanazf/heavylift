@@ -3,39 +3,41 @@
   --sb-content-color: var(--hl-inverseonsurface);
   --sb-action-color: var(--hl-inverseprimary);
   --sb-elevation: var(--shadow-lg);
-  
+
   --sb-min-height: var(--3xl);
   --sb-padding-y: var(--sm);
   --sb-padding-x: var(--md);
   --sb-radius: var(--2xs);
-  
+
   display: flex;
   align-items: center;
   gap: var(--md);
-  
+
   min-height: var(--sb-min-height);
   padding: var(--sb-padding-y) var(--sb-padding-x);
-  
+
   background-color: var(--sb-container-color);
   color: var(--sb-content-color);
   box-shadow: var(--sb-elevation);
   border-radius: var(--sb-radius);
-  
+
   font-family: var(--font-family-base);
   font-size: var(--body-font-size);
   line-height: var(--body-line-height);
-  
+
   position: fixed;
   bottom: var(--lg);
   left: 50%;
   transform: translateX(-50%) translateY(200%);
   z-index: 2000;
-  
+
   min-width: 288px;
   max-width: 60ch;
-  
+
   opacity: 0;
-  transition: transform 300ms cubic-bezier(0.2, 0, 0, 1), opacity 300ms linear;
+  transition:
+    transform 300ms cubic-bezier(0.2, 0, 0, 1),
+    opacity 300ms linear;
 }
 
 .snackbar.open {
@@ -53,7 +55,7 @@
   padding: var(--xs) var(--sm);
   margin-left: auto;
   border-radius: var(--sb-radius);
-  
+
   transition: background-color 200ms ease;
 }
 

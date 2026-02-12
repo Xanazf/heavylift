@@ -3,7 +3,7 @@
  * Re-exports core logic and adds file system capabilities.
  */
 
-import { type ColorScheme } from "./core";
+import type { ColorScheme } from "./core";
 
 export * from "./core";
 
