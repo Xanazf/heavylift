@@ -1,6 +1,6 @@
 {
   "name": "heavylift",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A lightweight CSS design system merging MD3, LiftKit, and Tailwind-like utility.",
   "main": "./dist/core.js",
   "module": "./dist/core.mjs",
