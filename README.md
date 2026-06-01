@@ -32,7 +32,7 @@ HeavyLift is a CSS design system and tooling suite that merges **Material Design
 *   **Build CSS:**
     Bundles and minifies `global.css` and copies assets to `dist/`.
     ```bash
-    npm run build
+    bun run build
     ```
 *   **Release:**
     Runs all checks, tests, builds the project, and publishes to npm.
